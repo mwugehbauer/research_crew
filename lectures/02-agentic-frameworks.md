@@ -1,0 +1,36 @@
+# 02 — Agentic Frameworks: CrewAI Basics
+
+## Concept
+
+An agentic *framework* gives you reusable building blocks so you don't hand-roll the think-act-observe loop yourself. CrewAI's four core abstractions:
+
+- **Agent** — role, goal, backstory, LLM, tools
+- **Task** — a description, expected output, and which agent is assigned to it
+- **Crew** — a collection of agents + tasks + a process for running them
+- **Process** — the orchestration strategy (we'll cover the two main ones in later lectures)
+
+Other frameworks (LangGraph, AutoGen, Microsoft Agent Framework, OpenAI's Agents SDK) model the same ideas differently — CrewAI's signature choice is the explicit `Agent`/`Task`/`Crew` separation and YAML-driven config.
+
+## In this repo
+
+Open [src/research_crew/crew.py](../src/research_crew/crew.py) top to bottom — it's short on purpose. Map each part to the concept:
+
+| Concept | Where |
+| --- | --- |
+| `@CrewBase` class | [crew.py:10](../src/research_crew/crew.py#L10) — marks `ResearchCrew` as a CrewAI project, auto-loads the YAML configs |
+| Agents | `researcher` and `analyst` methods, each decorated `@agent` |
+| Tasks | `research_task` and `analysis_task`, each decorated `@task` |
+| Crew | the `crew()` method, decorated `@crew`, assembles everything |
+| Config-driven roles | [config/agents.yaml](../src/research_crew/config/agents.yaml) — role/goal/backstory live in YAML, not Python |
+| Config-driven tasks | [config/tasks.yaml](../src/research_crew/config/tasks.yaml) — description/expected_output/agent assignment |
+
+Notice the YAML files use `{topic}` placeholders. [main.py](../src/research_crew/main.py) passes `inputs = {'topic': '...'}` into `.kickoff(inputs=inputs)`, and CrewAI substitutes it everywhere `{topic}` appears.
+
+## Exercise
+
+1. In [config/tasks.yaml](../src/research_crew/config/tasks.yaml), the `analysis_task` has `context: - research_task`. Find what this does by checking the CrewAI docs or experimenting: remove it, re-run the crew, and see how the analyst's report changes. Put it back.
+2. Add a brand new field to `agents.yaml` under `researcher` — try `max_iter: 5` — and explain (in a comment or your notes) what you think it controls before checking the docs.
+
+## Stretch goal
+
+Without changing any *logic*, rename the `analyst` agent to `editor` everywhere it's referenced (Python method name, YAML key, `tasks.yaml`'s `agent:` field) and confirm the crew still runs. This is a good test of whether you actually understand how the pieces connect, since CrewAI wires agents to tasks by name.
