@@ -1,4 +1,4 @@
-# Agentic AI Lecture Series — built on research_crew
+# Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 
 This series teaches agentic AI concepts using this repository as the running example. It follows the structure of Microsoft's [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) course, adapted to CrewAI and grounded entirely in this project's code instead of abstract examples.
 
