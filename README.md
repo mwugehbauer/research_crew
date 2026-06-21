@@ -21,9 +21,13 @@ No local install needed.
 
 The container automatically installs `uv` and runs `uv sync`.
 
-Once it's ready, add your API keys one of two ways:
-- **Codespaces secrets (recommended for a class):** in your GitHub account/org settings under Codespaces → Secrets, add `GEMINI_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables in every codespace automatically.
-- **Local `.env` file:** copy `.env.example` to `.env` inside the codespace and fill in your keys.
+**Add your API keys via Codespaces secrets (recommended — do this before opening your first codespace):** go to [github.com/settings/codespaces](https://github.com/settings/codespaces) → Codespaces secrets → add `GEMINI_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables automatically in every codespace you open, on this repo or your fork — no file to create or edit inside the codespace at all.
+
+<details>
+<summary>Alternative: local <code>.env</code> file inside the codespace (only if you can't use Codespaces secrets)</summary>
+
+Copy `.env.example` to `.env` inside the codespace and fill in your keys — **edit `.env`, not `.env.example`** (the latter is the committed template and stays empty; real keys belong only in `.env`, which is gitignored).
+</details>
 
 Once that's done, skip ahead to [Run the crew](#run-the-crew) below.
 

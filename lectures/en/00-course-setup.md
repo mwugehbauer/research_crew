@@ -23,14 +23,14 @@ Either way, you need two API keys before anything will run:
 2. Get your own free API keys:
    - Gemini: https://ai.google.dev (free tier)
    - Serper: https://serper.dev (free tier)
-3. Copy `.env.example` to `.env` and fill in your keys.
+3. Add your keys: if you're on Codespaces, add them as **Codespaces secrets** at [github.com/settings/codespaces](https://github.com/settings/codespaces) *before* opening your codespace — this is the recommended path, since it means you never touch a file containing real keys at all. If you're running locally, copy `.env.example` to `.env` and fill them in there (not into `.env.example` itself — that file is committed and must stay empty).
 4. Run the crew once:
    ```bash
    uv run research_crew
    ```
 5. Confirm `output/report.md` was created and contains a real report (not an error).
 
-If step 5 fails, debug it now — every later lecture assumes this works. Common first-run issues: wrong env var name, model name typo, or hitting a free-tier rate limit (wait a minute and retry).
+If a key is missing, `main.py` now fails fast with a clear message naming exactly which key is missing and a link to get one — rather than a deep stack trace from inside `crewai`. If you see that message, fix it and rerun; if step 5 still fails after your keys are set, debug it now — every later lecture assumes this works. Other common first-run issues: model name typo, or hitting a free-tier rate limit (wait a minute and retry).
 
 ## Stretch goal
 

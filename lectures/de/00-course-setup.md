@@ -23,14 +23,14 @@ In beiden Fällen werden zwei API-Schlüssel benötigt, bevor überhaupt etwas l
 2. Holt euch eigene kostenlose API-Schlüssel:
    - Gemini: https://ai.google.dev (kostenloses Kontingent)
    - Serper: https://serper.dev (kostenloses Kontingent)
-3. Kopiert `.env.example` nach `.env` und tragt eure Schlüssel ein.
+3. Tragt eure Schlüssel ein: Auf Codespaces fügt sie als **Codespaces-Secrets** unter [github.com/settings/codespaces](https://github.com/settings/codespaces) hinzu, *bevor* ihr euren Codespace öffnet — das ist der empfohlene Weg, da ihr dadurch nie eine Datei mit echten Schlüsseln berührt. Lokal kopiert `.env.example` nach `.env` und tragt sie dort ein (nicht in `.env.example` selbst — diese Datei ist committed und muss leer bleiben).
 4. Führt die Crew einmal aus:
    ```bash
    uv run research_crew
    ```
 5. Prüft, dass `output/report.md` erzeugt wurde und einen echten Report enthält (keine Fehlermeldung).
 
-Falls Schritt 5 fehlschlägt, behebt das jetzt — jede spätere Lektion setzt voraus, dass dies funktioniert. Häufige Anfangsprobleme: falscher Name der Umgebungsvariable, Tippfehler im Modellnamen, oder ein erreichtes Rate-Limit im kostenlosen Kontingent (kurz warten und erneut versuchen).
+Falls ein Schlüssel fehlt, schlägt `main.py` jetzt sofort mit einer klaren Meldung fehl, die genau benennt, welcher Schlüssel fehlt, plus einem Link, um einen zu bekommen — statt eines tiefen Stack-Traces aus dem Inneren von `crewai`. Behebt das und führt die Crew erneut aus; falls Schritt 5 trotz gesetzter Schlüssel weiter fehlschlägt, behebt das jetzt — jede spätere Lektion setzt voraus, dass dies funktioniert. Weitere häufige Anfangsprobleme: Tippfehler im Modellnamen, oder ein erreichtes Rate-Limit im kostenlosen Kontingent (kurz warten und erneut versuchen).
 
 ## Zusatzaufgabe
 
