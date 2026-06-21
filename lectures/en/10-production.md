@@ -1,5 +1,7 @@
 # 10 — AI Agents in Production
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/10-production.md)
+
 ## Concept
 
 Moving an agent from "works on my machine" to production means: reproducible environments, observability into what the agent is actually doing (not just final output), and a way for non-developers to run it. None of this changes agent logic — it's the operational layer around it.
@@ -8,11 +10,11 @@ Moving an agent from "works on my machine" to production means: reproducible env
 
 This project already demonstrates the full stack:
 
-- **Reproducible environments**: [.devcontainer/devcontainer.json](../.devcontainer/devcontainer.json) + `uv.lock` mean anyone gets an identical environment, locally or in Codespaces, with one command (see lecture 00).
-- **Observability**: [streamlit_app.py](../streamlit_app.py) subscribes to CrewAI's event bus (`crewai_event_bus`) and streams `TaskStartedEvent`, `AgentExecutionStartedEvent`, `ToolUsageStartedEvent`, etc. live, instead of only seeing the final report. This is the same mechanism production monitoring would use — just rendered in a demo UI instead of shipped to a logging backend.
+- **Reproducible environments**: [.devcontainer/devcontainer.json](../../.devcontainer/devcontainer.json) + `uv.lock` mean anyone gets an identical environment, locally or in Codespaces, with one command (see lecture 00).
+- **Observability**: [streamlit_app.py](../../streamlit_app.py) subscribes to CrewAI's event bus (`crewai_event_bus`) and streams `TaskStartedEvent`, `AgentExecutionStartedEvent`, `ToolUsageStartedEvent`, etc. live, instead of only seeing the final report. This is the same mechanism production monitoring would use — just rendered in a demo UI instead of shipped to a logging backend.
 - **Non-developer access**: the Streamlit UI gives anyone a topic input box and a "Run" button, no Python required.
 
-Read [streamlit_app.py](../streamlit_app.py) end to end — note `crewai_event_bus.scoped_handlers()`, which registers event listeners for the duration of one `kickoff()` call only, so repeated runs in the same process don't stack duplicate handlers.
+Read [streamlit_app.py](../../streamlit_app.py) end to end — note `crewai_event_bus.scoped_handlers()`, which registers event listeners for the duration of one `kickoff()` call only, so repeated runs in the same process don't stack duplicate handlers.
 
 ## Exercise
 

@@ -1,5 +1,7 @@
 # 11 — Agentic Protocols (MCP / A2A)
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/11-agentic-protocols.md)
+
 ## Concept
 
 So far, every tool in this crew is Python code living inside this repo. **MCP (Model Context Protocol)** is a standard for tools to live in a separate process (even a separate language, even on a separate machine) and be exposed to any agent framework that speaks MCP — instead of writing a CrewAI-specific `BaseTool` subclass, you point an agent at an MCP server and it auto-discovers the tools that server offers. **A2A (Agent-to-Agent)** is a related but different protocol for two independent agents (potentially from different frameworks/vendors) to communicate directly.

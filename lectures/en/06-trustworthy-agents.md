@@ -1,5 +1,7 @@
 # 06 — Building Trustworthy Agents
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/06-trustworthy-agents.md)
+
 ## Concept
 
 Agents fail in ways plain functions don't: they can produce confidently-wrong output, ignore instructions, or "succeed" while producing garbage. Trustworthiness mechanisms generally fall into two categories:
@@ -14,7 +16,7 @@ For evaluation, `crewai_tools` ships a Patronus integration (`PatronusEvalTool`,
 
 ## Exercise
 
-1. Add a `guardrail` to `research_task` in [crew.py](../src/research_crew/crew.py) that checks the output isn't suspiciously short (e.g. fewer than 200 characters) and fails validation if so:
+1. Add a `guardrail` to `research_task` in [crew.py](../../src/research_crew/crew.py) that checks the output isn't suspiciously short (e.g. fewer than 200 characters) and fails validation if so:
    ```python
    def research_quality_guardrail(output):
        if len(output.raw) < 200:

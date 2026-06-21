@@ -1,5 +1,7 @@
 # 09 — Metacognition
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/09-metacognition.md)
+
 ## Concept
 
 Metacognition means an agent (or the system around it) reflects on its own output and improves it, rather than emitting a first draft as final. Two common implementations:
@@ -10,7 +12,7 @@ This is different from a guardrail (lecture 06): a guardrail blocks/retries base
 
 ## In this repo
 
-Nothing here does this yet — `analysis_task`'s output goes straight to `output_file='output/report.md'` with no review step ([config/tasks.yaml](../src/research_crew/config/tasks.yaml)). This is the gap for this exercise.
+Nothing here does this yet — `analysis_task`'s output goes straight to `output_file='output/report.md'` with no review step ([config/tasks.yaml](../../src/research_crew/config/tasks.yaml)). This is the gap for this exercise.
 
 ## Exercise
 

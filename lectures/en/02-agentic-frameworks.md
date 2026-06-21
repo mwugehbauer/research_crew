@@ -1,5 +1,7 @@
 # 02 — Agentic Frameworks: CrewAI Basics
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-agentic-frameworks.md)
+
 ## Concept
 
 An agentic *framework* gives you reusable building blocks so you don't hand-roll the think-act-observe loop yourself. CrewAI's four core abstractions:
@@ -13,22 +15,22 @@ Other frameworks (LangGraph, AutoGen, Microsoft Agent Framework, OpenAI's Agents
 
 ## In this repo
 
-Open [src/research_crew/crew.py](../src/research_crew/crew.py) top to bottom — it's short on purpose. Map each part to the concept:
+Open [src/research_crew/crew.py](../../src/research_crew/crew.py) top to bottom — it's short on purpose. Map each part to the concept:
 
 | Concept | Where |
 | --- | --- |
-| `@CrewBase` class | [crew.py:10](../src/research_crew/crew.py#L10) — marks `ResearchCrew` as a CrewAI project, auto-loads the YAML configs |
+| `@CrewBase` class | [crew.py:10](../../src/research_crew/crew.py#L10) — marks `ResearchCrew` as a CrewAI project, auto-loads the YAML configs |
 | Agents | `researcher` and `analyst` methods, each decorated `@agent` |
 | Tasks | `research_task` and `analysis_task`, each decorated `@task` |
 | Crew | the `crew()` method, decorated `@crew`, assembles everything |
-| Config-driven roles | [config/agents.yaml](../src/research_crew/config/agents.yaml) — role/goal/backstory live in YAML, not Python |
-| Config-driven tasks | [config/tasks.yaml](../src/research_crew/config/tasks.yaml) — description/expected_output/agent assignment |
+| Config-driven roles | [config/agents.yaml](../../src/research_crew/config/agents.yaml) — role/goal/backstory live in YAML, not Python |
+| Config-driven tasks | [config/tasks.yaml](../../src/research_crew/config/tasks.yaml) — description/expected_output/agent assignment |
 
-Notice the YAML files use `{topic}` placeholders. [main.py](../src/research_crew/main.py) passes `inputs = {'topic': '...'}` into `.kickoff(inputs=inputs)`, and CrewAI substitutes it everywhere `{topic}` appears.
+Notice the YAML files use `{topic}` placeholders. [main.py](../../src/research_crew/main.py) passes `inputs = {'topic': '...'}` into `.kickoff(inputs=inputs)`, and CrewAI substitutes it everywhere `{topic}` appears.
 
 ## Exercise
 
-1. In [config/tasks.yaml](../src/research_crew/config/tasks.yaml), the `analysis_task` has `context: - research_task`. Find what this does by checking the CrewAI docs or experimenting: remove it, re-run the crew, and see how the analyst's report changes. Put it back.
+1. In [config/tasks.yaml](../../src/research_crew/config/tasks.yaml), the `analysis_task` has `context: - research_task`. Find what this does by checking the CrewAI docs or experimenting: remove it, re-run the crew, and see how the analyst's report changes. Put it back.
 2. Add a brand new field to `agents.yaml` under `researcher` — try `max_iter: 5` — and explain (in a comment or your notes) what you think it controls before checking the docs.
 
 ## Stretch goal

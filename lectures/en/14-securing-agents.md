@@ -1,5 +1,7 @@
 # 14 — Securing AI Agents
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/14-securing-agents.md)
+
 ## Concept
 
 Agent-specific security risks beyond standard appsec: secrets leaking into version control, prompt injection (untrusted content from a tool, like a search result, containing instructions that hijack the agent), and over-broad tool permissions (an agent with a file-write tool can be tricked into writing somewhere it shouldn't). The common thread: agents act on content they retrieve, so anything that content can influence is an attack surface.
@@ -9,7 +11,7 @@ Agent-specific security risks beyond standard appsec: secrets leaking into versi
 While building this project, a real incident happened that's worth walking through directly: a `.env.example` file (the *template*, tracked by git) almost got real API keys committed to it instead of the real `.env` file (gitignored), because the file names look similar and both appeared as open tabs in a Codespaces editor.
 
 The pattern that prevented an actual leak:
-1. `.env` is listed in [.gitignore](../.gitignore) — never tracked, never committed
+1. `.env` is listed in [.gitignore](../../.gitignore) — never tracked, never committed
 2. `.env.example` ships with empty placeholders only, committed safely
 3. Before any push, `git status`/`git diff` were checked to confirm no real key ever touched a tracked file
 

@@ -1,5 +1,7 @@
 # Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](de/README.md)
+
 This series teaches agentic AI concepts using this repository as the running example. It follows the structure of Microsoft's [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) course, adapted to CrewAI and grounded entirely in this project's code instead of abstract examples.
 
 Every lecture has the same shape:
@@ -14,21 +16,21 @@ Students should have [Run the crew](../README.md#run-the-crew) working (via Code
 
 | # | Title | Maps to AI Agents for Beginners |
 | --- | --- | --- |
-| [00](00-course-setup.md) | Course Setup | 00-course-setup |
-| [01](01-intro-to-ai-agents.md) | Intro to AI Agents | 01-intro-to-ai-agents |
-| [02](02-agentic-frameworks.md) | Agentic Frameworks: CrewAI Basics | 02-explore-agentic-frameworks |
-| [03](03-agentic-design-patterns.md) | Agentic Design Patterns | 03-agentic-design-patterns |
-| [04](04-tool-use.md) | Tool Use | 04-tool-use |
-| [05](05-agentic-rag.md) | Agentic RAG | 05-agentic-rag |
-| [06](06-trustworthy-agents.md) | Building Trustworthy Agents | 06-building-trustworthy-agents |
-| [07](07-planning-pattern.md) | Planning Pattern | 07-planning-design |
-| [08](08-multi-agent-pattern.md) | Multi-Agent Pattern | 08-multi-agent |
-| [09](09-metacognition.md) | Metacognition | 09-metacognition |
-| [10](10-production.md) | AI Agents in Production | 10-ai-agents-production |
-| [11](11-agentic-protocols.md) | Agentic Protocols (MCP/A2A) | 11-agentic-protocols |
-| [12](12-context-engineering.md) | Context Engineering | 12-context-engineering |
-| [13](13-agent-memory.md) | Agent Memory | 13-agent-memory |
-| [14](14-securing-agents.md) | Securing AI Agents | 18-securing-ai-agents |
+| [00](en/00-course-setup.md) | Course Setup | 00-course-setup |
+| [01](en/01-intro-to-ai-agents.md) | Intro to AI Agents | 01-intro-to-ai-agents |
+| [02](en/02-agentic-frameworks.md) | Agentic Frameworks: CrewAI Basics | 02-explore-agentic-frameworks |
+| [03](en/03-agentic-design-patterns.md) | Agentic Design Patterns | 03-agentic-design-patterns |
+| [04](en/04-tool-use.md) | Tool Use | 04-tool-use |
+| [05](en/05-agentic-rag.md) | Agentic RAG | 05-agentic-rag |
+| [06](en/06-trustworthy-agents.md) | Building Trustworthy Agents | 06-building-trustworthy-agents |
+| [07](en/07-planning-pattern.md) | Planning Pattern | 07-planning-design |
+| [08](en/08-multi-agent-pattern.md) | Multi-Agent Pattern | 08-multi-agent |
+| [09](en/09-metacognition.md) | Metacognition | 09-metacognition |
+| [10](en/10-production.md) | AI Agents in Production | 10-ai-agents-production |
+| [11](en/11-agentic-protocols.md) | Agentic Protocols (MCP/A2A) | 11-agentic-protocols |
+| [12](en/12-context-engineering.md) | Context Engineering | 12-context-engineering |
+| [13](en/13-agent-memory.md) | Agent Memory | 13-agent-memory |
+| [14](en/14-securing-agents.md) | Securing AI Agents | 18-securing-ai-agents |
 
 Not covered: the source course's "Microsoft Agent Framework" and "Browser-use / Computer Use Agents" modules are framework-specific to tools outside CrewAI's scope and are intentionally omitted.
 

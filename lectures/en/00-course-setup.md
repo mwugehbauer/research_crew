@@ -1,14 +1,16 @@
 # 00 — Course Setup
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/00-course-setup.md)
+
 ## Concept
 
 Before writing any agent code, everyone needs an identical, working environment. The two failure modes that waste the most lecture time are: students stuck on local installs, and students missing API keys. We solve both before lecture 1.
 
 ## In this repo
 
-This project supports two setup paths, documented in the main [README](../README.md#getting-started--choose-one-option):
+This project supports two setup paths, documented in the main [README](../../README.md#getting-started--choose-one-option):
 
-- **Option A: GitHub Codespaces** — zero local install, runs in the browser. The container automatically runs `uv sync` via [.devcontainer/devcontainer.json](../.devcontainer/devcontainer.json).
+- **Option A: GitHub Codespaces** — zero local install, runs in the browser. The container automatically runs `uv sync` via [.devcontainer/devcontainer.json](../../.devcontainer/devcontainer.json).
 - **Option B: Run locally** — `uv sync` on your own machine.
 
 Either way, you need two API keys before anything will run:

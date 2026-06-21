@@ -2,7 +2,7 @@
 
 Welcome to the ResearchCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
 
-**Teaching agentic AI?** See the [lecture series](lectures/README.md) — 15 sessions covering agent concepts, tools, RAG, multi-agent patterns, production, and security, each with hands-on exercises grounded in this repo's actual code.
+**Teaching agentic AI?** See the [lecture series](lectures/README.md) (English / [Deutsch](lectures/de/README.md)) — 15 sessions covering agent concepts, tools, RAG, multi-agent patterns, production, and security, each with hands-on exercises grounded in this repo's actual code.
 
 ## Getting Started — choose one option
 

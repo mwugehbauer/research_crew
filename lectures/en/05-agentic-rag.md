@@ -1,5 +1,7 @@
 # 05 — Agentic RAG
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/05-agentic-rag.md)
+
 ## Concept
 
 RAG (Retrieval-Augmented Generation) gives an agent access to specific documents/data it wasn't trained on, by: chunking the content, embedding each chunk into a vector, storing vectors in a vector DB, and retrieving the most relevant chunks for a given query to feed into the LLM's context. "Agentic RAG" means the agent itself decides when retrieval is needed, rather than retrieval happening on every single call unconditionally.
@@ -8,7 +10,7 @@ The part that trips people up: **embeddings are a separate model from the chat L
 
 ## In this repo
 
-[crew.py:48-59](../src/research_crew/crew.py#L48-L59) already configures the embedder, but doesn't use it yet:
+[crew.py:48-59](../../src/research_crew/crew.py#L48-L59) already configures the embedder, but doesn't use it yet:
 
 ```python
 return Crew(
@@ -26,9 +28,9 @@ return Crew(
 )
 ```
 
-Why this exists: CrewAI's knowledge/RAG features default to **OpenAI embeddings** regardless of which LLM you configured for chat. Without this `embedder` block, adding any knowledge source would fail with a missing `OPENAI_API_KEY` error — even though this crew never uses OpenAI for anything else. See the README's [tool category table](../README.md#adding-more-tools-or-rag-for-students) for which pre-built tools hit this same trap.
+Why this exists: CrewAI's knowledge/RAG features default to **OpenAI embeddings** regardless of which LLM you configured for chat. Without this `embedder` block, adding any knowledge source would fail with a missing `OPENAI_API_KEY` error — even though this crew never uses OpenAI for anything else. See the README's [tool category table](../../README.md#adding-more-tools-or-rag-for-students) for which pre-built tools hit this same trap.
 
-There's also an unused file sitting in [knowledge/user_preference.txt](../knowledge/user_preference.txt) — CrewAI's convention for where knowledge source files live.
+There's also an unused file sitting in [knowledge/user_preference.txt](../../knowledge/user_preference.txt) — CrewAI's convention for where knowledge source files live.
 
 ## Exercise
 

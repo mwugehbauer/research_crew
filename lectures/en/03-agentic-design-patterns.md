@@ -1,5 +1,7 @@
 # 03 — Agentic Design Patterns
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/03-agentic-design-patterns.md)
+
 ## Concept
 
 "Design pattern" here means a recurring shape for how agents are orchestrated, independent of which framework you use. The pattern this repo demonstrates is **sequential pipeline**: agent A finishes completely, then hands its output to agent B. Other common patterns (covered more in later lectures): hierarchical/manager-worker, planner-executor, and reflection/critique loops.
@@ -8,7 +10,7 @@ The sequential pattern is the right default when steps genuinely depend on each 
 
 ## In this repo
 
-[crew.py:43-51](../src/research_crew/crew.py#L43-L51):
+[crew.py:43-51](../../src/research_crew/crew.py#L43-L51):
 ```python
 return Crew(
     agents=self.agents,
@@ -18,7 +20,7 @@ return Crew(
 )
 ```
 
-`Process.sequential` means: run `research_task` to completion (the `researcher` agent works alone), then run `analysis_task` (the `analyst` agent works alone, but receives the research output via `context: - research_task` in [tasks.yaml](../src/research_crew/config/tasks.yaml)).
+`Process.sequential` means: run `research_task` to completion (the `researcher` agent works alone), then run `analysis_task` (the `analyst` agent works alone, but receives the research output via `context: - research_task` in [tasks.yaml](../../src/research_crew/config/tasks.yaml)).
 
 This is the simplest possible multi-agent pipeline: two agents, zero negotiation, zero branching.
 

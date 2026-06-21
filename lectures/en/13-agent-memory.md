@@ -1,5 +1,7 @@
 # 13 — Agent Memory
 
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/13-agent-memory.md)
+
 ## Concept
 
 Memory lets an agent retain information *across* runs (or across tasks within a run) instead of starting from a blank slate every time. CrewAI distinguishes several kinds:
@@ -11,7 +13,7 @@ This is different from RAG (lecture 05): RAG retrieves from documents you provid
 
 ## In this repo
 
-Memory is currently off — when we printed the crew object earlier in this project's setup, it showed `memory=False`, `short_term_memory=None`, `long_term_memory=None`, `entity_memory=None`. Turning it on is a one-line change to [crew.py](../src/research_crew/crew.py):
+Memory is currently off — when we printed the crew object earlier in this project's setup, it showed `memory=False`, `short_term_memory=None`, `long_term_memory=None`, `entity_memory=None`. Turning it on is a one-line change to [crew.py](../../src/research_crew/crew.py):
 
 ```python
 return Crew(
