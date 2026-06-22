@@ -12,11 +12,11 @@ Behandelt jede Übung als Sprint-Grenze. Jeder Sprint schaltet eine neue Fähigk
 
 | Übung(en) | Schaltet frei | Meilenstein |
 | --- | --- | --- |
-| [02](02-agentic-frameworks.md)–[03](03-agentic-design-patterns.md) | Agenten, Tasks, sequentieller Prozess | **M0: Baseline** |
-| [04](04-tool-use.md) | Tool-Nutzung | **M1: Tools** |
-| [05](05-agentic-rag.md) | Knowledge Sources / RAG | **M2: RAG** *(Zwischenabgabe hier fällig)* |
-| [06](06-trustworthy-agents.md) + [08](08-multi-agent-pattern.md) | Guardrails, Multi-Agenten-/hierarchischer Prozess | **M3: Multi-Agent und Vertrauen** |
-| [10](10-production.md) + [14](14-securing-agents.md) | Produktions-Aspekte, Security-Threat-Modeling | **Abschluss: Produktion und Sicherheit** |
+| [01](01-agentic-frameworks.md) | Agenten, Tasks, sequentieller Prozess | **M0: Baseline** |
+| [02](02-tool-use.md) | Tool-Nutzung | **M1: Tools** |
+| [03](03-agentic-rag.md) | Knowledge Sources / RAG | **M2: RAG** *(Zwischenabgabe hier fällig)* |
+| [04](04-multi-agent-pattern.md) | Multi-Agenten-/hierarchischer Prozess | **M3: Multi-Agent** |
+| [05](05-production.md) + [06](06-securing-agents.md) | Produktions-Aspekte, Security-Threat-Modeling | **Abschluss: Produktion und Sicherheit** |
 
 Zwei Abgaben: eine **Zwischenabgabe** bei M2 (formativ, geringeres Gewicht — fängt schwache Grundlagen früh ab) und eine **Abschlussabgabe** nach der letzten Übung (der vollständige Entwurf plus eine Retrospektive darüber, wie sich euer Denken verändert hat).
 

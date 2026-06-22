@@ -1,6 +1,6 @@
-# 05 — Agentic RAG
+# 03 — Agentic RAG
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/05-agentic-rag.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/03-agentic-rag.md)
 
 ## Part 1 — Theory
 
@@ -25,7 +25,7 @@ The exercise below builds the CrewAI equivalent of this diagram: `TextFileKnowle
 
 ### In this repo
 
-[crew.py:48-59](../../src/research_crew/crew.py#L48-L59) already configures the embedder, but doesn't use it yet:
+[crew.py:48-60](../../src/research_crew/crew.py#L48-L60) already configures the embedder, but doesn't use it yet:
 
 ```python
 return Crew(
@@ -47,25 +47,29 @@ Why this exists: CrewAI's knowledge/RAG features default to **OpenAI embeddings*
 
 There's also an unused file sitting in [knowledge/user_preference.txt](../../knowledge/user_preference.txt) — CrewAI's convention for where knowledge source files live.
 
+**Dummy code to reuse:** [src/research_crew/knowledge_source_example.py](../../src/research_crew/knowledge_source_example.py) is a working, unwired template — a `build_knowledge_sources()` function that already returns a `TextFileKnowledgeSource` pointed at `user_preference.txt`. Copy it in directly, or write the same lines yourself first to make sure you understand them (step 1 below).
+
 ### Task
 
 This is the main hands-on exercise of the series — wire up real RAG:
 
-1. Import `TextFileKnowledgeSource`:
+1. Either write the import and source yourself:
    ```python
    from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
-   ```
-2. Create a source pointing at the existing file (paths are relative to `knowledge/`):
-   ```python
+
    preference_knowledge = TextFileKnowledgeSource(file_paths=["user_preference.txt"])
    ```
-3. Pass it into the `Crew` constructor: `knowledge_sources=[preference_knowledge]`.
-4. Add a task (or modify an existing one) that asks a question only answerable from `user_preference.txt` (e.g. "what is the user's name and where are they based?"). Confirm the agent answers correctly using retrieved knowledge, not a guess.
-5. Try it with the knowledge source removed — does the agent hallucinate an answer, refuse, or say it doesn't know? This is the actual point of RAG: grounding answers in real data instead of guesses.
+   or import the ready-made helper instead:
+   ```python
+   from research_crew.knowledge_source_example import build_knowledge_sources
+   ```
+2. Pass it into the `Crew` constructor: `knowledge_sources=[preference_knowledge]` (or `knowledge_sources=build_knowledge_sources()` if you used the helper).
+3. Add a task (or modify an existing one) that asks a question only answerable from `user_preference.txt` (e.g. "what is the user's name and where are they based?"). Confirm the agent answers correctly using retrieved knowledge, not a guess.
+4. Try it with the knowledge source removed — does the agent hallucinate an answer, refuse, or say it doesn't know? This is the actual point of RAG: grounding answers in real data instead of guesses.
 
 ### Stretch goal
 
-Add a second knowledge source of a different type (`StringKnowledgeSource` for inline text, or `PDFKnowledgeSource` for a PDF you provide) and confirm both sources are retrievable.
+Add a second knowledge source of a different type (`StringKnowledgeSource` for inline text, or `PDFKnowledgeSource` for a PDF you provide) and confirm both sources are retrievable. If you're using `knowledge_source_example.py`, just add the second source as another entry in the list `build_knowledge_sources()` returns.
 
 ---
 

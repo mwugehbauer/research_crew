@@ -1,6 +1,6 @@
-# 10 — KI-Agenten in Produktion
+# 05 — KI-Agenten in Produktion
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/10-production.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/05-production.md)
 
 ## Teil 1 — Theorie
 

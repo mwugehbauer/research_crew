@@ -21,7 +21,7 @@ All ten ideas below need **zero structural changes at M0** — only the `topic` 
 
 ## M0: Baseline
 
-**Unlocked by:** exercises 02–03
+**Unlocked by:** exercise 01
 
 **Add:** two agents, a sequential process, no tools beyond what's already wired in the starter repo.
 
@@ -35,7 +35,7 @@ All ten ideas below need **zero structural changes at M0** — only the `topic` 
 
 ## M1: Tools
 
-**Unlocked by:** exercise 04
+**Unlocked by:** exercise 02
 
 **Add:** one or two tools from `crewai_tools` (see the [README's tool table](../../README.md#adding-more-tools-or-rag-for-students)), chosen because your topic actually needs them — not just to check a box.
 
@@ -49,7 +49,7 @@ All ten ideas below need **zero structural changes at M0** — only the `topic` 
 
 ## M2: RAG (interim submission)
 
-**Unlocked by:** exercise 05
+**Unlocked by:** exercise 03
 
 **Add:** a knowledge source (`TextFileKnowledgeSource`, `StringKnowledgeSource`, or `PDFKnowledgeSource`) relevant to your topic, using the Gemini embedder already configured in `crew.py`.
 
@@ -63,23 +63,23 @@ All ten ideas below need **zero structural changes at M0** — only the `topic` 
 
 **→ Interim submission is due at the end of this milestone.** Submit: `agents.yaml`, `tasks.yaml`, `DESIGN.md` (sections 1–4 complete, with M0–M2 rows in the Risks/Constraints/Design-history tables), and your backlog (Issues + Project board) as they stand.
 
-## M3: Multi-agent and trust
+## M3: Multi-agent
 
-**Unlocked by:** exercises 06 + 08
+**Unlocked by:** exercise 04
 
-**Add:** a third agent, a decision between `Process.sequential` and `Process.hierarchical` (justify it), and a `guardrail` on at least one task.
+**Add:** a third agent and a decision between `Process.sequential` and `Process.hierarchical` (justify it). Optional stretch: a `guardrail` on at least one task — not covered in a dedicated exercise this term, but quick to look up in CrewAI's docs (`Task(guardrail=fn)`).
 
-**Update:** `crew.py`, `agents.yaml`, `tasks.yaml`, and `DESIGN.md` (Architecture: updated Process/Agents, Guardrails/trust mechanisms).
+**Update:** `crew.py`, `agents.yaml`, `tasks.yaml`, and `DESIGN.md` (Architecture: updated Process/Agents, Guardrails/trust mechanisms if you added one).
 
 **Risk & constraint prompts** (answer in `DESIGN.md`'s Risks/Constraints tables):
 - If you went hierarchical: what is the manager actually optimizing for when it delegates, and could that diverge from what you want? If you stayed sequential: what would hierarchical have bought you, and why wasn't it worth the cost?
-- What specifically does your guardrail catch, and what plausible failure would it miss?
+- What does the third agent add that the first two couldn't already do between them — is its role truly necessary, or just splitting work that didn't need splitting?
 
 **Suggested user story starter:** *"As a [stakeholder], I want a check before the final report ships, so that an obviously broken or off-topic output never reaches me."*
 
 ## Final: Production and security
 
-**Unlocked by:** exercises 10 + 14
+**Unlocked by:** exercises 05 + 06
 
 **Add:** a short production plan (what you'd monitor, what would alert you to failure) and a threat model (what's the realistic prompt-injection or secret-leak risk for your specific topic and tools).
 
@@ -87,6 +87,6 @@ All ten ideas below need **zero structural changes at M0** — only the `topic` 
 
 **Risk & constraint prompts** (answer in `DESIGN.md`'s Risks/Constraints tables):
 - If this crew ran unattended for a semester on your topic, what's the first thing that breaks, and how would you know?
-- Given the actual tools/knowledge sources your crew uses, construct one concrete (hypothetical, not executed) prompt-injection scenario specific to your design — not the generic one from exercise 14.
+- Given the actual tools/knowledge sources your crew uses, construct one concrete (hypothetical, not executed) prompt-injection scenario specific to your design — not the generic one from exercise 06.
 
 **Final submission:** everything above, plus a final **Design history** entry in `DESIGN.md` answering: *what changed between your interim and final design, and what did you learn that made you change it?* That question is worth more than it looks — it's the one place you have to show your reasoning evolved, not just accumulated.

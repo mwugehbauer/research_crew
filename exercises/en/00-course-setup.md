@@ -20,7 +20,7 @@ This project supports two setup paths, documented in the main [README](../../REA
 Either way, you need three API keys before anything will run:
 - `GROQ_API_KEY` — powers the LLM behind every agent (`MODEL=groq/llama-3.3-70b-versatile`, set automatically by `main.py` if not already present)
 - `SERPER_API_KEY` — powers the researcher agent's web search tool
-- `GEMINI_API_KEY` — powers embeddings for knowledge/memory features, not the chat LLM (see exercise 05)
+- `GEMINI_API_KEY` — powers embeddings for knowledge/memory features, not the chat LLM (see exercise 03)
 
 ### Task
 

@@ -21,7 +21,7 @@ Alle zehn Ideen unten brauchen bei M0 **keine strukturellen Änderungen** — nu
 
 ## M0: Baseline
 
-**Freigeschaltet durch:** Übungen 02–03
+**Freigeschaltet durch:** Übung 01
 
 **Hinzufügen:** zwei Agenten, ein sequentieller Prozess, keine Tools über das hinaus, was im Starter-Repo bereits verkabelt ist.
 
@@ -35,7 +35,7 @@ Alle zehn Ideen unten brauchen bei M0 **keine strukturellen Änderungen** — nu
 
 ## M1: Tools
 
-**Freigeschaltet durch:** Übung 04
+**Freigeschaltet durch:** Übung 02
 
 **Hinzufügen:** ein oder zwei Tools aus `crewai_tools` (siehe die [Tool-Tabelle des READMEs](../../README.md#adding-more-tools-or-rag-for-students)), gewählt, weil euer Thema sie wirklich braucht — nicht nur, um ein Kästchen abzuhaken.
 
@@ -49,7 +49,7 @@ Alle zehn Ideen unten brauchen bei M0 **keine strukturellen Änderungen** — nu
 
 ## M2: RAG (Zwischenabgabe)
 
-**Freigeschaltet durch:** Übung 05
+**Freigeschaltet durch:** Übung 03
 
 **Hinzufügen:** eine für euer Thema relevante Knowledge Source (`TextFileKnowledgeSource`, `StringKnowledgeSource` oder `PDFKnowledgeSource`), über den bereits in `crew.py` konfigurierten Gemini-Embedder.
 
@@ -63,23 +63,23 @@ Alle zehn Ideen unten brauchen bei M0 **keine strukturellen Änderungen** — nu
 
 **→ Die Zwischenabgabe ist am Ende dieses Meilensteins fällig.** Einzureichen: `agents.yaml`, `tasks.yaml`, `DESIGN.md` (Abschnitte 1–4 vollständig, mit M0–M2-Zeilen in den Tabellen Risiken/Grenzen/Design-Historie), und euer Backlog (Issues + Project-Board) im aktuellen Stand.
 
-## M3: Multi-Agent und Vertrauen
+## M3: Multi-Agent
 
-**Freigeschaltet durch:** Übungen 06 + 08
+**Freigeschaltet durch:** Übung 04
 
-**Hinzufügen:** einen dritten Agenten, eine begründete Entscheidung zwischen `Process.sequential` und `Process.hierarchical`, und ein `guardrail` auf mindestens einem Task.
+**Hinzufügen:** einen dritten Agenten und eine begründete Entscheidung zwischen `Process.sequential` und `Process.hierarchical`. Optionale Zusatzaufgabe: ein `guardrail` auf mindestens einem Task — nicht in einer eigenen Übung behandelt, aber schnell in der CrewAI-Doku nachzuschlagen (`Task(guardrail=fn)`).
 
-**Aktualisieren:** `crew.py`, `agents.yaml`, `tasks.yaml`, und `DESIGN.md` (Architektur: aktualisierter Prozess/Agenten, Guardrails/Vertrauensmechanismen).
+**Aktualisieren:** `crew.py`, `agents.yaml`, `tasks.yaml`, und `DESIGN.md` (Architektur: aktualisierter Prozess/Agenten, Guardrails/Vertrauensmechanismen, falls hinzugefügt).
 
 **Risiko- und Grenzenfragen** (beantwortet in den Tabellen "Risiken"/"Grenzen" von `DESIGN.md`):
 - Falls hierarchisch: Wofür optimiert der Manager beim Delegieren tatsächlich, und könnte das von dem abweichen, was ihr wollt? Falls sequentiell geblieben: Was hätte hierarchisch gebracht, und warum war es den Aufwand nicht wert?
-- Was genau fängt euer Guardrail ab, und welches plausible Fehlverhalten würde er übersehen?
+- Was trägt der dritte Agent bei, das die ersten beiden nicht schon zusammen leisten könnten — ist seine Rolle wirklich nötig, oder teilt sie nur Arbeit auf, die keine Teilung gebraucht hätte?
 
 **Vorschlag für eine User-Story:** *"Als [Stakeholder] möchte ich eine Prüfung, bevor der finale Report verschickt wird, damit eine offensichtlich kaputte oder themenfremde Ausgabe mich nie erreicht."*
 
 ## Abschluss: Produktion und Sicherheit
 
-**Freigeschaltet durch:** Übungen 10 + 14
+**Freigeschaltet durch:** Übungen 05 + 06
 
 **Hinzufügen:** einen kurzen Produktionsplan (was würdet ihr überwachen, was würde euch auf einen Ausfall hinweisen) und ein Threat Model (wie realistisch ist das Prompt-Injection- oder Secret-Leak-Risiko für genau euer Thema und eure Tools).
 
@@ -87,6 +87,6 @@ Alle zehn Ideen unten brauchen bei M0 **keine strukturellen Änderungen** — nu
 
 **Risiko- und Grenzenfragen** (beantwortet in den Tabellen "Risiken"/"Grenzen" von `DESIGN.md`):
 - Würde diese Crew ein Semester lang unbeaufsichtigt zu eurem Thema laufen — was geht als Erstes kaputt, und wie würdet ihr es merken?
-- Konstruiert anhand der tatsächlichen Tools/Knowledge Sources eurer Crew ein konkretes (hypothetisches, nicht ausgeführtes) Prompt-Injection-Szenario, das spezifisch zu eurem Entwurf passt — nicht das generische aus Übung 14.
+- Konstruiert anhand der tatsächlichen Tools/Knowledge Sources eurer Crew ein konkretes (hypothetisches, nicht ausgeführtes) Prompt-Injection-Szenario, das spezifisch zu eurem Entwurf passt — nicht das generische aus Übung 06.
 
 **Abschlussabgabe:** alles oben, plus ein letzter **Design-Historie**-Eintrag in `DESIGN.md` mit der Antwort auf: *Was hat sich zwischen eurer Zwischen- und Abschlussabgabe verändert, und was habt ihr gelernt, das euch zur Änderung bewogen hat?* Diese Frage ist mehr wert, als sie aussieht — sie ist die einzige Stelle, an der ihr zeigen müsst, dass sich euer Denken weiterentwickelt hat, statt sich nur angesammelt zu haben.

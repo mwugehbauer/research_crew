@@ -2,7 +2,7 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../README.md)
 
-Das sind die praktischen Übungssitzungen zu **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Die Vorlesungstheorie wird über Folien im Kurs vermittelt; diese Reihe ist die praktische Begleitung dazu und nutzt dieses Repository als durchgängiges Beispiel. Sie folgt der Struktur des Microsoft-Kurses [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners), angepasst auf CrewAI und vollständig im Code dieses Projekts verankert statt anhand abstrakter Beispiele.
+Das sind die praktischen Übungssitzungen zu **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Die Vorlesungstheorie wird über Folien im Kurs vermittelt; diese Reihe ist die praktische Begleitung dazu und nutzt dieses Repository als durchgängiges Beispiel — bewusst beschränkt auf die Konzepte, die im Code dieses Projekts tatsächlich gezeigt werden, statt eines umfassenden Überblicks über jedes agentische KI-Thema.
 
 Jede Übung hat denselben zweiteiligen Aufbau:
 - **Teil 1 — Theorie**
@@ -15,29 +15,19 @@ Jede Übung hat denselben zweiteiligen Aufbau:
 
 Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) (über Codespaces oder lokal) funktionsfähig haben, bevor Übung 1 beginnt.
 
-Zwei Begleitwerke werden über mehrere Übungen hinweg zitiert statt pro Sitzung: Russell & Norvigs *Artificial Intelligence: A Modern Approach* (grundlegende Agentendefinitionen, Übungen 01 und 03) und Lakshmanans *Generative AI Design Patterns* (der Pattern-Katalog hinter den Übungen 03, 07, 08, 09, 10). Alle anderen Zitate sind spezifische arXiv-Papers oder Protokollspezifikationen, aufgeführt pro Übung unter "Originalarbeit".
+Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Übung 05 (Produktion) zitiert; alle anderen Zitate sind spezifische arXiv-Papers, aufgeführt pro Übung unter "Originalarbeit".
 
 ## Übungen
 
-| # | Titel | Entspricht AI Agents for Beginners |
-| --- | --- | --- |
-| [00](00-course-setup.md) | Einrichtung des Kurses | 00-course-setup |
-| [01](01-intro-to-ai-agents.md) | Einführung in KI-Agenten | 01-intro-to-ai-agents |
-| [02](02-agentic-frameworks.md) | Agentische Frameworks: CrewAI-Grundlagen | 02-explore-agentic-frameworks |
-| [03](03-agentic-design-patterns.md) | Agentische Design-Patterns | 03-agentic-design-patterns |
-| [04](04-tool-use.md) | Tool-Nutzung | 04-tool-use |
-| [05](05-agentic-rag.md) | Agentisches RAG | 05-agentic-rag |
-| [06](06-trustworthy-agents.md) | Vertrauenswürdige Agenten bauen | 06-building-trustworthy-agents |
-| [07](07-planning-pattern.md) | Planning-Pattern | 07-planning-design |
-| [08](08-multi-agent-pattern.md) | Multi-Agenten-Pattern | 08-multi-agent |
-| [09](09-metacognition.md) | Metakognition | 09-metacognition |
-| [10](10-production.md) | KI-Agenten in Produktion | 10-ai-agents-production |
-| [11](11-agentic-protocols.md) | Agentische Protokolle (MCP/A2A) | 11-agentic-protocols |
-| [12](12-context-engineering.md) | Context Engineering | 12-context-engineering |
-| [13](13-agent-memory.md) | Agenten-Gedächtnis | 13-agent-memory |
-| [14](14-securing-agents.md) | KI-Agenten absichern | 18-securing-ai-agents |
-
-Nicht abgedeckt: Die Module "Microsoft Agent Framework" und "Browser-use / Computer Use Agents" des Quellkurses sind spezifisch für Tools außerhalb des Anwendungsbereichs von CrewAI und wurden bewusst ausgelassen.
+| # | Titel |
+| --- | --- |
+| [00](00-course-setup.md) | Einrichtung des Kurses |
+| [01](01-agentic-frameworks.md) | Agentische Frameworks: CrewAI-Grundlagen |
+| [02](02-tool-use.md) | Tool-Nutzung |
+| [03](03-agentic-rag.md) | Agentisches RAG |
+| [04](04-multi-agent-pattern.md) | Multi-Agenten-Pattern |
+| [05](05-production.md) | KI-Agenten in Produktion |
+| [06](06-securing-agents.md) | KI-Agenten absichern |
 
 ## Benotete Team-Aufgabe
 

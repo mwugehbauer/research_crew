@@ -17,7 +17,7 @@ The goal of these exercises is to turn the architectural concepts from the lectu
 - **Crew** — the collection of agents + tasks + a `process` for running them
 - **Process** — the orchestration strategy: `sequential` (fixed pipeline) or `hierarchical` (a manager agent delegates dynamically)
 
-CrewAI's signature choice — covered in depth in [exercise 02](exercises/en/02-agentic-frameworks.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
+CrewAI's signature choice — covered in depth in [exercise 01](exercises/en/01-agentic-frameworks.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
 
 ## The template code
 
@@ -29,7 +29,8 @@ This repo's working crew (`researcher` → `analyst`, sequential) is the running
 | [src/research_crew/config/agents.yaml](src/research_crew/config/agents.yaml) | Each agent's `role`/`goal`/`backstory` |
 | [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
 | [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
-| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (exercise 04) |
+| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (exercise 02) |
+| [src/research_crew/knowledge_source_example.py](src/research_crew/knowledge_source_example.py) | A working, unwired `build_knowledge_sources()` helper for RAG (exercise 03) |
 
 ## Use cases to pick from
 
@@ -128,7 +129,7 @@ Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is au
 
 ## Exercise sessions
 
-15 exercise sessions ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, multi-agent patterns, production, and security. Every session has the same two-part shape:
+7 exercise sessions ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, multi-agent patterns, production, and security — scoped to what's actually demonstrated in this repo's code. Every session has the same two-part shape:
 
 - **Part 1 — Theory**: the concept and its seminal paper/book, with a reproduced figure where one exists
 - **Part 2 — Practice**: exactly where that concept already shows up in this repo's code, plus a hands-on task and an optional stretch goal
@@ -165,7 +166,7 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in exercise 05.
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in exercise 03.
 
 ## Support
 

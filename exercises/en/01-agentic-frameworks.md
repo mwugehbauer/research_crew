@@ -1,6 +1,6 @@
-# 02 — Agentic Frameworks: CrewAI Basics
+# 01 — Agentic Frameworks: CrewAI Basics
 
-🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/02-agentic-frameworks.md)
+🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/01-agentic-frameworks.md)
 
 ## Part 1 — Theory
 
@@ -51,3 +51,7 @@ Notice the YAML files use `{topic}` placeholders. [main.py](../../src/research_c
 ### Stretch goal
 
 Without changing any *logic*, rename the `analyst` agent to `editor` everywhere it's referenced (Python method name, YAML key, `tasks.yaml`'s `agent:` field) and confirm the crew still runs. This is a good test of whether you actually understand how the pieces connect, since CrewAI wires agents to tasks by name.
+
+---
+
+**Team assignment:** this exercise unlocks [**Milestone M0: Baseline**](assignment-milestones.md#m0-baseline) of the [team assignment](assignment-overview.md) — your own two-agent, sequential crew design is due.

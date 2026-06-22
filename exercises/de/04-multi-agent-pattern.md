@@ -1,6 +1,6 @@
-# 08 — Multi-Agenten-Pattern
+# 04 — Multi-Agenten-Pattern
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/08-multi-agent-pattern.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/04-multi-agent-pattern.md)
 
 ## Teil 1 — Theorie
 
@@ -25,7 +25,7 @@ CrewAIs hierarchischer Prozess mit einem `manager_llm` spielt die Rolle des "hie
 
 ### In diesem Repo
 
-Aktuell `process=Process.sequential` mit genau zwei Agenten in fester Reihenfolge ([crew.py:50](../../src/research_crew/crew.py#L50)). Um hierarchisch zu werden, braucht CrewAI entweder `manager_llm` oder `manager_agent`:
+Aktuell `process=Process.sequential` mit genau zwei Agenten in fester Reihenfolge ([crew.py:51](../../src/research_crew/crew.py#L51)). Um hierarchisch zu werden, braucht CrewAI entweder `manager_llm` oder `manager_agent`:
 
 ```python
 return Crew(
@@ -50,4 +50,4 @@ Probiert `manager_agent` statt `manager_llm` — definiert euren eigenen dedizie
 
 ---
 
-**Team-Aufgabe:** Zusammen mit Übung 06 schaltet diese Übung [**Meilenstein M3: Multi-Agent und Vertrauen**](assignment-milestones.md#m3-multi-agent-und-vertrauen) der [Team-Aufgabe](assignment-overview.md) frei.
+**Team-Aufgabe:** Diese Übung schaltet [**Meilenstein M3: Multi-Agent**](assignment-milestones.md#m3-multi-agent) der [Team-Aufgabe](assignment-overview.md) frei.

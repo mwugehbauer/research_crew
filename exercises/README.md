@@ -2,7 +2,7 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](de/README.md)
 
-These are the hands-on exercise sessions for **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Lecture theory is delivered via slides in class; this series is the practice companion, using this repository as the running example. It follows the structure of Microsoft's [AI Agents for Beginners](https://github.com/microsoft/ai-agents-for-beginners) course, adapted to CrewAI and grounded entirely in this project's code instead of abstract examples.
+These are the hands-on exercise sessions for **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**. Lecture theory is delivered via slides in class; this series is the practice companion, using this repository as the running example, and is deliberately scoped to the concepts that are actually demonstrated in this project's code rather than a comprehensive survey of every agentic-AI topic.
 
 Every exercise session has the same two-part shape:
 - **Part 1 — Theory**
@@ -15,29 +15,19 @@ Every exercise session has the same two-part shape:
 
 You should have [Run the crew](../README.md#run-the-crew) working (via Codespaces or locally) before exercise 1.
 
-Two companion texts are cited across multiple exercises rather than per-session: Russell & Norvig's *Artificial Intelligence: A Modern Approach* (foundational agent definitions, exercises 01 and 03) and Lakshmanan's *Generative AI Design Patterns* (the pattern catalogue behind exercises 03, 07, 08, 09, 10). All other citations are specific arXiv papers or protocol specs, listed per exercise under "Original paper."
+Lakshmanan's *Generative AI Design Patterns* is cited as a companion text in exercise 05 (production); all other citations are specific arXiv papers, listed per exercise under "Original paper."
 
 ## Exercise Sessions
 
-| # | Title | Maps to AI Agents for Beginners |
-| --- | --- | --- |
-| [00](en/00-course-setup.md) | Course Setup | 00-course-setup |
-| [01](en/01-intro-to-ai-agents.md) | Intro to AI Agents | 01-intro-to-ai-agents |
-| [02](en/02-agentic-frameworks.md) | Agentic Frameworks: CrewAI Basics | 02-explore-agentic-frameworks |
-| [03](en/03-agentic-design-patterns.md) | Agentic Design Patterns | 03-agentic-design-patterns |
-| [04](en/04-tool-use.md) | Tool Use | 04-tool-use |
-| [05](en/05-agentic-rag.md) | Agentic RAG | 05-agentic-rag |
-| [06](en/06-trustworthy-agents.md) | Building Trustworthy Agents | 06-building-trustworthy-agents |
-| [07](en/07-planning-pattern.md) | Planning Pattern | 07-planning-design |
-| [08](en/08-multi-agent-pattern.md) | Multi-Agent Pattern | 08-multi-agent |
-| [09](en/09-metacognition.md) | Metacognition | 09-metacognition |
-| [10](en/10-production.md) | AI Agents in Production | 10-ai-agents-production |
-| [11](en/11-agentic-protocols.md) | Agentic Protocols (MCP/A2A) | 11-agentic-protocols |
-| [12](en/12-context-engineering.md) | Context Engineering | 12-context-engineering |
-| [13](en/13-agent-memory.md) | Agent Memory | 13-agent-memory |
-| [14](en/14-securing-agents.md) | Securing AI Agents | 18-securing-ai-agents |
-
-Not covered: the source course's "Microsoft Agent Framework" and "Browser-use / Computer Use Agents" modules are framework-specific to tools outside CrewAI's scope and are intentionally omitted.
+| # | Title |
+| --- | --- |
+| [00](en/00-course-setup.md) | Course Setup |
+| [01](en/01-agentic-frameworks.md) | Agentic Frameworks: CrewAI Basics |
+| [02](en/02-tool-use.md) | Tool Use |
+| [03](en/03-agentic-rag.md) | Agentic RAG |
+| [04](en/04-multi-agent-pattern.md) | Multi-Agent Pattern |
+| [05](en/05-production.md) | AI Agents in Production |
+| [06](en/06-securing-agents.md) | Securing AI Agents |
 
 ## Graded team assignment
 

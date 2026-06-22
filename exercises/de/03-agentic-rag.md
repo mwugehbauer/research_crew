@@ -1,6 +1,6 @@
-# 05 — Agentisches RAG
+# 03 — Agentisches RAG
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/05-agentic-rag.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/03-agentic-rag.md)
 
 ## Teil 1 — Theorie
 
@@ -25,7 +25,7 @@ Die Übung unten baut das CrewAI-Äquivalent dieses Diagramms: `TextFileKnowledg
 
 ### In diesem Repo
 
-[crew.py:48-59](../../src/research_crew/crew.py#L48-L59) konfiguriert bereits den Embedder, nutzt ihn aber noch nicht:
+[crew.py:48-60](../../src/research_crew/crew.py#L48-L60) konfiguriert bereits den Embedder, nutzt ihn aber noch nicht:
 
 ```python
 return Crew(
@@ -47,25 +47,29 @@ Warum das existiert: CrewAIs Knowledge-/RAG-Funktionen nutzen standardmäßig **
 
 Außerdem liegt bereits eine ungenutzte Datei unter [knowledge/user_preference.txt](../../knowledge/user_preference.txt) — das ist CrewAIs Konvention dafür, wo Knowledge-Quelldateien liegen.
 
+**Fertiger Code zur Wiederverwendung:** [src/research_crew/knowledge_source_example.py](../../src/research_crew/knowledge_source_example.py) ist eine funktionierende, noch nicht eingebundene Vorlage — eine `build_knowledge_sources()`-Funktion, die bereits eine `TextFileKnowledgeSource` zurückgibt, die auf `user_preference.txt` zeigt. Übernehmt sie direkt, oder schreibt die gleichen Zeilen zuerst selbst, um sicherzugehen, dass ihr sie versteht (Schritt 1 unten).
+
 ### Aufgabe
 
 Das ist die zentrale praktische Übung der Reihe — echtes RAG verkabeln:
 
-1. Importiert `TextFileKnowledgeSource`:
+1. Schreibt entweder Import und Quelle selbst:
    ```python
    from crewai.knowledge.source.text_file_knowledge_source import TextFileKnowledgeSource
-   ```
-2. Erstellt eine Quelle, die auf die vorhandene Datei zeigt (Pfade sind relativ zu `knowledge/`):
-   ```python
+
    preference_knowledge = TextFileKnowledgeSource(file_paths=["user_preference.txt"])
    ```
-3. Übergebt sie an den `Crew`-Konstruktor: `knowledge_sources=[preference_knowledge]`.
-4. Fügt einen Task hinzu (oder ändert einen bestehenden), der eine Frage stellt, die nur aus `user_preference.txt` beantwortbar ist (z. B. "Wie heißt der Nutzer und wo ist er ansässig?"). Prüft, dass der Agent korrekt mit abgerufenem Wissen antwortet, nicht mit einer Vermutung.
-5. Probiert es mit entfernter Knowledge-Quelle — halluziniert der Agent eine Antwort, verweigert er, oder sagt er, dass er es nicht weiß? Das ist der eigentliche Sinn von RAG: Antworten in realen Daten zu verankern statt in Vermutungen.
+   oder importiert stattdessen die fertige Hilfsfunktion:
+   ```python
+   from research_crew.knowledge_source_example import build_knowledge_sources
+   ```
+2. Übergebt sie an den `Crew`-Konstruktor: `knowledge_sources=[preference_knowledge]` (oder `knowledge_sources=build_knowledge_sources()`, falls ihr die Hilfsfunktion genutzt habt).
+3. Fügt einen Task hinzu (oder ändert einen bestehenden), der eine Frage stellt, die nur aus `user_preference.txt` beantwortbar ist (z. B. "Wie heißt der Nutzer und wo ist er ansässig?"). Prüft, dass der Agent korrekt mit abgerufenem Wissen antwortet, nicht mit einer Vermutung.
+4. Probiert es mit entfernter Knowledge-Quelle — halluziniert der Agent eine Antwort, verweigert er, oder sagt er, dass er es nicht weiß? Das ist der eigentliche Sinn von RAG: Antworten in realen Daten zu verankern statt in Vermutungen.
 
 ### Zusatzaufgabe
 
-Fügt eine zweite Knowledge-Quelle eines anderen Typs hinzu (`StringKnowledgeSource` für eingebetteten Text, oder `PDFKnowledgeSource` für ein eigenes PDF) und prüft, dass beide Quellen abrufbar sind.
+Fügt eine zweite Knowledge-Quelle eines anderen Typs hinzu (`StringKnowledgeSource` für eingebetteten Text, oder `PDFKnowledgeSource` für ein eigenes PDF) und prüft, dass beide Quellen abrufbar sind. Falls ihr `knowledge_source_example.py` nutzt, fügt die zweite Quelle einfach als weiteren Eintrag in der von `build_knowledge_sources()` zurückgegebenen Liste hinzu.
 
 ---
 

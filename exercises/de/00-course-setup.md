@@ -20,7 +20,7 @@ Dieses Projekt unterstützt zwei Einrichtungswege, dokumentiert im Haupt-[README
 In beiden Fällen werden drei API-Schlüssel benötigt, bevor überhaupt etwas läuft:
 - `GROQ_API_KEY` — treibt das LLM hinter jedem Agenten an (`MODEL=groq/llama-3.3-70b-versatile`, von `main.py` automatisch gesetzt, falls noch nicht vorhanden)
 - `SERPER_API_KEY` — treibt das Web-Such-Tool des Researcher-Agenten an
-- `GEMINI_API_KEY` — treibt Embeddings für Knowledge-/Memory-Funktionen an, nicht das Chat-LLM (siehe Übung 05)
+- `GEMINI_API_KEY` — treibt Embeddings für Knowledge-/Memory-Funktionen an, nicht das Chat-LLM (siehe Übung 03)
 
 ### Aufgabe
 

@@ -1,6 +1,6 @@
-# 04 — Tool-Nutzung
+# 02 — Tool-Nutzung
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/04-tool-use.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/02-tool-use.md)
 
 ## Teil 1 — Theorie
 
@@ -42,9 +42,9 @@ class MyCustomTool(BaseTool):
         return "this is an example of a tool output, ignore it and move along."
 ```
 
-Vergleicht es mit dem bereits genutzten Tool, [crew.py:20](../../src/research_crew/crew.py#L20): `SerperDevTool()` — ein vollständig fertiges Tool aus `crewai_tools`, das keine Implementierung benötigt, nur einen API-Schlüssel (`SERPER_API_KEY`).
+Vergleicht es mit dem bereits genutzten Tool, [crew.py:22](../../src/research_crew/crew.py#L22): `SerperDevTool()` — ein vollständig fertiges Tool aus `crewai_tools`, das keine Implementierung benötigt, nur einen API-Schlüssel (`SERPER_API_KEY`).
 
-Die [Tool-Kategorientabelle](../../README.md#adding-more-tools-or-rag-for-students) im README listet ~90 fertige Tools auf, aufgeteilt danach, ob sie nur einen API-Schlüssel brauchen (die meisten Such-/Scraping-Tools) oder lokale Embeddings (RAG-artige Tools, Thema von Übung 05).
+Die [Tool-Kategorientabelle](../../README.md#adding-more-tools-or-rag-for-students) im README listet ~90 fertige Tools auf, aufgeteilt danach, ob sie nur einen API-Schlüssel brauchen (die meisten Such-/Scraping-Tools) oder lokale Embeddings (RAG-artige Tools, Thema von Übung 03).
 
 ### Aufgabe
 

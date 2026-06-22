@@ -1,6 +1,6 @@
-# 02 — Agentische Frameworks: CrewAI-Grundlagen
+# 01 — Agentische Frameworks: CrewAI-Grundlagen
 
-🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/02-agentic-frameworks.md)
+🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/01-agentic-frameworks.md)
 
 ## Teil 1 — Theorie
 
@@ -51,3 +51,7 @@ Beachtet, dass die YAML-Dateien `{topic}`-Platzhalter verwenden. [main.py](../..
 ### Zusatzaufgabe
 
 Benennt, ohne irgendeine *Logik* zu ändern, den `analyst`-Agenten überall, wo er referenziert wird, in `editor` um (Python-Methodenname, YAML-Schlüssel, `agent:`-Feld in `tasks.yaml`) und prüft, dass die Crew weiterhin läuft. Das ist ein guter Test, ob ihr wirklich verstanden habt, wie die Teile zusammenhängen, denn CrewAI verknüpft Agenten und Tasks über deren Namen.
+
+---
+
+**Team-Aufgabe:** Diese Übung schaltet [**Meilenstein M0: Baseline**](assignment-milestones.md#m0-baseline) der [Team-Aufgabe](assignment-overview.md) frei — euer eigener zweistufiger, sequentieller Crew-Entwurf ist jetzt fällig.

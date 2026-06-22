@@ -12,11 +12,11 @@ Treat each exercise as a sprint boundary. Each sprint unlocks one new capability
 
 | Exercise(s) | Unlocks | Milestone |
 | --- | --- | --- |
-| [02](02-agentic-frameworks.md)–[03](03-agentic-design-patterns.md) | Agents, tasks, sequential process | **M0: Baseline** |
-| [04](04-tool-use.md) | Tool use | **M1: Tools** |
-| [05](05-agentic-rag.md) | Knowledge sources / RAG | **M2: RAG** *(interim submission due here)* |
-| [06](06-trustworthy-agents.md) + [08](08-multi-agent-pattern.md) | Guardrails, multi-agent/hierarchical process | **M3: Multi-agent and trust** |
-| [10](10-production.md) + [14](14-securing-agents.md) | Production concerns, security threat modeling | **Final: Production and security** |
+| [01](01-agentic-frameworks.md) | Agents, tasks, sequential process | **M0: Baseline** |
+| [02](02-tool-use.md) | Tool use | **M1: Tools** |
+| [03](03-agentic-rag.md) | Knowledge sources / RAG | **M2: RAG** *(interim submission due here)* |
+| [04](04-multi-agent-pattern.md) | Multi-agent/hierarchical process | **M3: Multi-agent** |
+| [05](05-production.md) + [06](06-securing-agents.md) | Production concerns, security threat modeling | **Final: Production and security** |
 
 Two submissions: an **interim submission** at M2 (formative, lighter weight — catches weak foundations early) and a **final submission** after the last exercise (the full design plus a retrospective on how your thinking changed).
 
