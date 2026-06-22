@@ -2,7 +2,7 @@
 
 **Team:** [team name] · **Topic:** [your crew's topic] · **Last updated:** [milestone, YYYY-MM-DD]
 
-> Fill in each section as the relevant milestone unlocks it — mark later sections "not yet" rather than deleting them. For the **Risks**, **Constraints**, and **Design history** tables specifically: this is append-only — add new rows per milestone, never edit or delete a previous row. If a later milestone changes your assessment, add a new row noting the update instead. See [lectures/en/assignment-milestones.md](lectures/en/assignment-milestones.md) (or the German twin) for what belongs in each section at each stage.
+> Fill in each section as the relevant milestone unlocks it — mark later sections "not yet" rather than deleting them. For the **Risks**, **Constraints**, and **Design history** tables specifically: this is append-only — add new rows per milestone, never edit or delete a previous row. If a later milestone changes your assessment, add a new row noting the update instead. See [exercises/en/assignment-milestones.md](exercises/en/assignment-milestones.md) (or the German twin) for what belongs in each section at each stage.
 
 ## 1. Overview
 - **Problem / goal:** what is this crew for, in one or two sentences?

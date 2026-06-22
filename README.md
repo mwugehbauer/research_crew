@@ -1,10 +1,56 @@
-# ResearchCrew Crew
+# Generative & Agentic AI — Hands-On Exercises
 
-Welcome to the ResearchCrew Crew project, powered by [crewAI](https://crewai.com). This template is designed to help you set up a multi-agent AI system with ease, leveraging the powerful and flexible framework provided by crewAI. Our goal is to enable your agents to collaborate effectively on complex tasks, maximizing their collective intelligence and capabilities.
+*Companion repository for the exercise sessions of* **Aktuelle Fallstudien der Digitalökonomie und der Künstlichen Intelligenz: Generative und Agentische KI**.
 
-**Teaching agentic AI?** See the [lecture series](lectures/README.md) (English / [Deutsch](lectures/de/README.md)) — 15 sessions covering agent concepts, tools, RAG, multi-agent patterns, production, and security, each with hands-on exercises grounded in this repo's actual code.
+Lecture theory is delivered via slides in class. This repository is the hands-on practice companion: a small, working multi-agent AI system built with [CrewAI](https://crewai.com) that you'll read, run, and extend across the exercise sessions — plus a graded team assignment where you design your own agentic AI architecture for a use case of your choice.
 
-## Getting Started — choose one option
+## Goal
+
+The goal of these exercises is to turn the architectural concepts from the lecture — agents, tasks, tools, RAG, multi-agent orchestration, trust, production, security — from slides into things you've actually read, run, and modified in working code. By the end, you'll be able to **design**, and optionally **implement**, your own agentic AI architecture for a real use case, using CrewAI as the concrete framework.
+
+## Intro to CrewAI
+
+[CrewAI](https://docs.crewai.com) is a Python framework for orchestrating multiple LLM-powered agents that collaborate on a shared set of tasks, instead of one model trying to do everything in a single call. Four abstractions do all the work:
+
+- **Agent** — a `role`, `goal`, `backstory`, an LLM, and optionally `tools`
+- **Task** — a `description`, an `expected_output`, and which agent is assigned to it
+- **Crew** — the collection of agents + tasks + a `process` for running them
+- **Process** — the orchestration strategy: `sequential` (fixed pipeline) or `hierarchical` (a manager agent delegates dynamically)
+
+CrewAI's signature choice — covered in depth in [exercise 02](exercises/en/02-agentic-frameworks.md) — is that `role`/`goal`/`backstory`/task definitions live in **YAML config**, not Python, so you can usually change *what* a crew does without touching the orchestration code at all.
+
+## The template code
+
+This repo's working crew (`researcher` → `analyst`, sequential) is the running example for every exercise:
+
+| File | What it is |
+| --- | --- |
+| [src/research_crew/crew.py](src/research_crew/crew.py) | Defines the agents, tasks, and the `Crew` itself — short on purpose |
+| [src/research_crew/config/agents.yaml](src/research_crew/config/agents.yaml) | Each agent's `role`/`goal`/`backstory` |
+| [src/research_crew/config/tasks.yaml](src/research_crew/config/tasks.yaml) | Each task's `description`/`expected_output`/agent assignment |
+| [src/research_crew/main.py](src/research_crew/main.py) | Entry point — sets the `topic` input and kicks off the crew |
+| [src/research_crew/tools/custom_tool.py](src/research_crew/tools/custom_tool.py) | An unwired template for writing your own tool (exercise 04) |
+
+## Use cases to pick from
+
+For the team assignment (see below), you design your own crew for a topic of your choice. All ten ideas need **zero structural changes** to get started — only the `topic` string — because the researcher/analyst roles are already topic-agnostic. Pick one, or propose your own:
+
+| # | Use case | Example topic | Natural tool to add | Natural RAG source to add |
+| --- | --- | --- | --- | --- |
+| 1 | Competitive landscape analysis | "Competitive landscape for [industry]" | Web search / scraping | Market-positioning brief (PDF) |
+| 2 | Regulatory impact briefing | "EU AI Act impact on SaaS startups" | Web search | The regulation text itself |
+| 3 | Academic literature review | "Recent advances in [CS/AI subtopic]" | `ArxivPaperTool` | A seminal paper's PDF |
+| 4 | Job market & skills trend report | "In-demand skills for [tech field]" | Web search / job search tool | A skills-framework doc |
+| 5 | Startup due-diligence memo | "Due diligence on [startup]" | Web search | The startup's pitch deck (PDF) |
+| 6 | Personalized travel planner | "Travel plan for [destination]" | Web search | Reuse `knowledge/user_preference.txt` |
+| 7 | Product sentiment synthesis | "Customer sentiment on [product category]" | Web search / scraping | The product's FAQ/support docs |
+| 8 | ESG/sustainability risk briefing | "ESG risks for [company/sector]" | Web search | The company's sustainability report |
+| 9 | Personal finance topic explainer | "ETFs vs. individual stocks" | Web search | A fund prospectus or glossary |
+| 10 | News digest on an ongoing story | "Weekly digest on [news topic]" | Web search / news search tool | A backgrounder doc |
+
+Full detail (why each is low-friction, and exactly what changes at each milestone) is in [exercises/en/assignment-milestones.md](exercises/en/assignment-milestones.md).
+
+## Getting started — choose one option
 
 There are two independent ways to get this project running. Pick **one**:
 
@@ -21,7 +67,7 @@ No local install needed.
 
 The container automatically installs `uv` and runs `uv sync`.
 
-**Add your API keys via Codespaces secrets (recommended — do this before opening your first codespace):** go to [github.com/settings/codespaces](https://github.com/settings/codespaces) → Codespaces secrets → add `GROQ_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables automatically in every codespace you open, on this repo or your fork — no file to create or edit inside the codespace at all. (`GEMINI_API_KEY` is only needed if you do the RAG/memory lectures, which use Gemini for embeddings.)
+**Add your API keys via Codespaces secrets (recommended — do this before opening your first codespace):** go to [github.com/settings/codespaces](https://github.com/settings/codespaces) → Codespaces secrets → add `GROQ_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables automatically in every codespace you open, on this repo or your fork — no file to create or edit inside the codespace at all. (`GEMINI_API_KEY` is only needed if you do the RAG/memory exercises, which use Gemini for embeddings.)
 
 <details>
 <summary>Alternative: local <code>.env</code> file inside the codespace (only if you can't use Codespaces secrets)</summary>
@@ -47,7 +93,7 @@ Clone the repo, then from its root install the dependencies:
 uv sync
 ```
 
-Copy `.env.example` to `.env` and fill in your `GROQ_API_KEY` and `SERPER_API_KEY` (and `GEMINI_API_KEY` if you'll do the RAG/memory lectures, which use Gemini for embeddings).
+Copy `.env.example` to `.env` and fill in your `GROQ_API_KEY` and `SERPER_API_KEY` (and `GEMINI_API_KEY` if you'll do the RAG/memory exercises, which use Gemini for embeddings).
 
 Once that's done, continue with [Run the crew](#run-the-crew) below.
 
@@ -72,7 +118,7 @@ This initializes the research_crew Crew, assembling the agents and assigning the
 
 ## Live demo UI (Streamlit)
 
-For a lecture-friendly view of the agents working, run the Streamlit app instead of the plain CLI. It shows each agent/task/tool event live in the browser, then renders the final report.
+For a classroom-friendly view of the agents working, run the Streamlit app instead of the plain CLI. It shows each agent/task/tool event live in the browser, then renders the final report.
 
 ```bash
 uv run streamlit run streamlit_app.py
@@ -80,9 +126,16 @@ uv run streamlit run streamlit_app.py
 
 Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is auto-forwarded and a preview tab opens automatically (configured in `.devcontainer/devcontainer.json`).
 
-## Understanding Your Crew
+## Exercise sessions
 
-The research_crew Crew is composed of multiple AI agents, each with unique roles, goals, and tools. These agents collaborate on a series of tasks, defined in `config/tasks.yaml`, leveraging their collective skills to achieve complex objectives. The `config/agents.yaml` file outlines the capabilities and configurations of each agent in your crew.
+15 exercise sessions ([English](exercises/README.md) / [Deutsch](exercises/de/README.md)) cover agent concepts, tools, RAG, multi-agent patterns, production, and security. Every session has the same two-part shape:
+
+- **Part 1 — Theory**: the concept and its seminal paper/book, with a reproduced figure where one exists
+- **Part 2 — Practice**: exactly where that concept already shows up in this repo's code, plus a hands-on task and an optional stretch goal
+
+## Team assignment
+
+Alongside the exercise sessions, teams design their own crew for a use case of their choice (see the table above), growing it in complexity milestone-by-milestone as new sessions unlock new capabilities — a critical risk/constraint analysis is the main graded deliverable, working code is an optional bonus. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)).
 
 ## Adding more tools or RAG (for students)
 
@@ -101,7 +154,7 @@ The research_crew Crew is composed of multiple AI agents, each with unique roles
 | Evaluation & quality | No | `PatronusEvalTool`, `PatronusLocalEvaluatorTool`, `PatronusPredefinedCriteriaEvalTool` |
 | Platform & automation integrations | Varies by platform | `ZapierActionTool`, `ComposioTool`, `ApifyActorsTool`, `EnterpriseActionTool`, `MergeAgentHandlerTool`, `GenerateCrewaiAutomationTool`, `InvokeCrewAIAutomationTool`, `BedrockInvokeAgentTool`, `BedrockKBRetrieverTool`, `AIMindTool`, `LlamaIndexTool`, `ContextualAICreateAgentTool`, `ContextualAIParseTool`, `ContextualAIQueryTool`, `ContextualAIRerankTool` |
 
-For any tool marked "Needs embedder config", point it at Gemini the same way (otherwise it fails with a missing `OPENAI_API_KEY` error, even though the crew's chat LLM is Gemini):
+For any tool marked "Needs embedder config", point it at Gemini the same way (otherwise it fails with a missing `OPENAI_API_KEY` error, even though the crew's chat LLM is Groq):
 
 ```python
 WebsiteSearchTool(config={
@@ -112,14 +165,11 @@ WebsiteSearchTool(config={
 })
 ```
 
-This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as an exercise.
+This crew's `embedder` (see `crew.py`) is already configured the same way at the `Crew` level, so adding a `knowledge_sources=[...]` list there (e.g. a `TextFileKnowledgeSource` pointing at `knowledge/user_preference.txt`) will embed via Gemini automatically — that wiring is left as a hands-on task in exercise 05.
 
 ## Support
 
-For support, questions, or feedback regarding the ResearchCrew Crew or crewAI.
-- Visit our [documentation](https://docs.crewai.com)
-- Reach out to us through our [GitHub repository](https://github.com/joaomdmoura/crewai)
-- [Join our Discord](https://discord.com/invite/X4JWnZnxPb)
-- [Chat with our docs](https://chatg.pt/DWjSBZn)
-
-Let's create wonders together with the power and simplicity of crewAI.
+For support, questions, or feedback regarding CrewAI itself (not the exercises):
+- Visit the [CrewAI documentation](https://docs.crewai.com)
+- Reach out via the [CrewAI GitHub repository](https://github.com/crewAIInc/crewAI)
+- [Join the CrewAI Discord](https://discord.com/invite/X4JWnZnxPb)
