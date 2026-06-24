@@ -1,6 +1,10 @@
 # src/research_crew/crew.py
 import os
 
+# CrewAI's telemetry tries to register OS signal handlers, which only works in the
+# main thread — fails (harmlessly) when run from Streamlit's worker thread otherwise.
+os.environ.setdefault('CREWAI_DISABLE_TELEMETRY', 'true')
+
 from crewai import Agent, Crew, Process, Task
 from crewai.project import CrewBase, agent, crew, task
 from crewai_tools import SerperDevTool
