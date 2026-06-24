@@ -4,6 +4,14 @@
 
 Lecture theory is delivered via slides in class. This repository is the hands-on practice companion: a small, working multi-agent AI system built with [CrewAI](https://crewai.com) that you'll read, run, and extend across the exercise sessions — plus a graded team assignment where you design your own agentic AI architecture for a use case of your choice.
 
+## Communication
+
+**All course communication goes through Discord — [join here](https://discord.gg/c89VTuMRQ).** Questions about setup, exercises, the team assignment, or anything else in this repo: ask there, not via GitHub Issues (Issues on this repo are reserved for the team sign-up flow only) or any other channel.
+
+Each team can spin up its **own thread** off the relevant channel for internal team coordination — any member can start one, no special permission needed.
+
+Emails, WhatsApp messages, carrier pigeons, and notes passed during lecture will be received with genuine warmth, admired for their effort, and otherwise met with a serene, untroubled silence. If it didn't happen on Discord, it didn't happen.
+
 ## Goal
 
 The goal of these exercises is to turn the architectural concepts from the lecture — agents, tasks, tools, RAG, multi-agent orchestration, trust, production, security — from slides into things you've actually read, run, and modified in working code. By the end, you'll be able to **design**, and optionally **implement**, your own agentic AI architecture for a real use case, using CrewAI as the concrete framework.
