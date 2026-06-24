@@ -1,0 +1,67 @@
+name: Add student to team
+
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  issues: write
+
+jobs:
+  add-to-team:
+    if: contains(github.event.issue.labels.*.name, 'team-signup')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Parse form, add to team, reply
+        uses: actions/github-script@v7
+        with:
+          # Needs an org-admin personal access token, not the default GITHUB_TOKEN,
+          # since adding someone to a team is an organization-level permission.
+          # See "For instructors" in exercises/en/assignment-overview.md for setup.
+          github-token: ${{ secrets.ORG_ADMIN_TOKEN }}
+          script: |
+            const body = context.payload.issue.body || "";
+
+            const usernameMatch = body.match(/###\s*Your GitHub username\s*\n+\s*([^\s\n]+)/i);
+            const teamMatch = body.match(/###\s*Your team slug\s*\n+\s*([^\s\n]+)/i);
+
+            if (!usernameMatch || !teamMatch) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: "⚠️ Could not read a username and team from this form. Please edit the issue to fill in both fields, or contact your instructor.",
+              });
+              return;
+            }
+
+            const username = usernameMatch[1].replace(/^@/, "").trim();
+            const team = teamMatch[1].trim().toLowerCase();
+
+            try {
+              await github.rest.teams.addOrUpdateMembershipForUserInOrg({
+                org: context.repo.owner,
+                team_slug: team,
+                username: username,
+                role: "member",
+              });
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `✅ @${username} added to team **${team}**. Check your GitHub notifications/email for the invite — you must accept it before you have access to anything.`,
+              });
+              await github.rest.issues.update({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                state: "closed",
+              });
+            } catch (e) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                body: `❌ Could not add you automatically (${e.message}). Most likely "${username}" is misspelled, or team "${team}" doesn't exist yet. Double-check both and edit this issue to retry, or contact your instructor.`,
+              });
+            }

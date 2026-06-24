@@ -11,7 +11,7 @@ Jede Übung startet direkt mit der praktischen Arbeit statt mit einem eigenen Th
 
 Diese Reihe wiederholt nicht, was die Vorlesung zu jedem Thema bereits behandelt — sie ist die praktische Begleitung, keine zweite Vorlesung.
 
-Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) (über Codespaces oder lokal) funktionsfähig haben, bevor Übung 1 beginnt.
+Ihr solltet [Run the crew](../../README.md#getting-started--choose-one-option) in **eurem eigenen Team-Repo** (über Codespaces oder lokal) funktionsfähig haben, bevor Übung 1 beginnt — siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students), falls ihr das noch nicht habt.
 
 Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Übung 05 (Produktion) zitiert; alle anderen Zitate sind spezifische arXiv-Papers, aufgeführt pro Übung unter "Originalarbeit".
 
@@ -33,4 +33,4 @@ Begleitend zu den Übungen entwerfen Teams ihre eigene Crew zu einem Thema ihrer
 
 ## Für Lehrende
 
-Jede Übung verweist auf reale Dateien in `src/research_crew/`. Lassen Sie Studierende direkt in ihrem eigenen Codespace oder Fork arbeiten — siehe das Haupt-[README](../../README.md) für die beiden Einrichtungsoptionen. Musterlösungen sind bewusst nicht enthalten; falls Sie eine Referenzimplementierung zur Bewertung möchten, lassen Sie Studierende einen PR gegen ihren eigenen Fork öffnen, damit Sie den Diff überprüfen können. Für die Team-Aufgabe speziell siehe den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für Repo-/Team-Setup.
+Jede Übung verweist auf reale Dateien in `src/research_crew/`. Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Org-/Team-/Repo-Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die Commit-Historie jedes Teams direkt prüft.

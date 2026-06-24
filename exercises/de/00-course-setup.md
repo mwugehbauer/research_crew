@@ -2,11 +2,13 @@
 
 🇩🇪 **Deutsch** (diese Seite) · 🇬🇧 [English](../en/00-course-setup.md)
 
-Bevor irgendein Agenten-Code geschrieben wird, braucht jeder eine identische, funktionierende Umgebung. Die zwei häufigsten Zeitfresser in einer Übung sind: Studierende, die an der lokalen Installation hängen bleiben, und Studierende, denen API-Schlüssel fehlen. Beides lösen wir vor Übung 1.
+Bevor irgendein Agenten-Code geschrieben wird, braucht jeder eine identische, funktionierende Umgebung. Die drei häufigsten Zeitfresser sind: Studierende, die auf Org-/Team-Zugang warten, Studierende, die an der lokalen Installation hängen bleiben, und Studierende, denen API-Schlüssel fehlen. Alle drei lösen wir vor Übung 1.
 
 ## In diesem Repo
 
-Dieses Projekt unterstützt zwei Einrichtungswege, dokumentiert im Haupt-[README](../../README.md#getting-started--choose-one-option):
+Dieser Kurs läuft in einer GitHub-Organisation. Der Zugang wird einmalig eingerichtet, dokumentiert im Abschnitt ["Zugang erhalten" des Haupt-READMEs](../../README.md#getting-access-students): GitHub-Account holen, über das Team-Anmelde-Issue einreichen, die Team-Einladung annehmen — dann gibt eure Lehrperson eurem Team Zugang zu **eurer eigenen Kopie dieses Repos** — das ist diejenige, in der ihr ab jetzt tatsächlich arbeitet, nicht das Repo dieser Seite hier.
+
+Sobald ihr in eurem Team-Repo seid, unterstützt es zwei Einrichtungswege, dokumentiert im Haupt-[README](../../README.md#getting-started--choose-one-option):
 
 - **Option A: GitHub Codespaces** — keine lokale Installation nötig, läuft im Browser. Der Container führt automatisch `uv sync` aus, gesteuert über [.devcontainer/devcontainer.json](../../.devcontainer/devcontainer.json).
 - **Option B: Lokal ausführen** — `uv sync` auf dem eigenen Rechner.
@@ -16,15 +18,17 @@ In beiden Fällen werden drei API-Schlüssel benötigt, bevor überhaupt etwas l
 - `SERPER_API_KEY` — treibt das Web-Such-Tool des Researcher-Agenten an
 - `GEMINI_API_KEY` — treibt Embeddings für Knowledge-/Memory-Funktionen an, nicht das Chat-LLM (siehe Übung 03)
 
+**Diese werden einmal pro Team eingerichtet, nicht einmal pro Studierendem** — siehe die Aufgabe unten.
+
 ## Aufgabe
 
-1. Wählt einen Einrichtungsweg (Codespaces oder lokal) und bringt ihn gemäß README zum Laufen.
-2. Holt euch eigene kostenlose API-Schlüssel:
+1. Falls noch nicht erledigt: Holt euch einen GitHub-Account, reicht ihn über das Team-Anmelde-Issue eures Teams ein, und nehmt die Team-Einladung an, sobald sie ankommt. Prüft, dass ihr euer Team-Repo sehen könnt, bevor ihr weitermacht.
+2. **Einigt euch als Team, wer die API-Schlüssel einrichtet** — das muss nur einmal passieren. Diese Person holt sich die kostenlosen Schlüssel:
    - Groq: https://console.groq.com/keys (kostenloses Kontingent)
    - Serper: https://serper.dev (kostenloses Kontingent)
    - Gemini: https://ai.google.dev (kostenloses Kontingent)
-3. Tragt eure Schlüssel ein: Auf Codespaces fügt sie als **Codespaces-Secrets** unter [github.com/settings/codespaces](https://github.com/settings/codespaces) hinzu, *bevor* ihr euren Codespace öffnet — das ist der empfohlene Weg, da ihr dadurch nie eine Datei mit echten Schlüsseln berührt. Lokal kopiert `.env.example` nach `.env` und tragt sie dort ein (nicht in `.env.example` selbst — diese Datei ist committed und muss leer bleiben).
-4. Führt die Crew einmal aus:
+3. Diese Person fügt sie als **Repository-Secrets** in eurem Team-Repo hinzu: `Settings → Secrets and variables → Codespaces` → `GROQ_API_KEY`, `SERPER_API_KEY`, `GEMINI_API_KEY` hinzufügen. Alle anderen im Team bekommen diese automatisch in jedem Codespace, den sie auf diesem Repo öffnen — niemand sonst muss diesen Schritt wiederholen. (Falls ihr lokal statt mit Codespaces arbeitet: kopiert `.env.example` nach `.env` und tragt sie dort selbst ein — `.env` wird nicht wie Repository-Secrets automatisch zwischen Teammitgliedern geteilt.)
+4. Öffnet euer Team-Repo und führt die Crew einmal aus:
    ```bash
    uv run research_crew
    ```

@@ -51,9 +51,20 @@ For the team assignment (see below), you design your own crew for a use case of 
 
 Full detail (why each is low-friction on the code side despite the new role design, and exactly what changes at each milestone) is in [exercises/en/assignment-milestones.md](exercises/en/assignment-milestones.md).
 
+## Getting access (students)
+
+This course runs in a GitHub Organization, not on this repo directly. Everything below happens once, before your first exercise:
+
+1. **Get a GitHub account** if you don't already have one — free, just an email signup.
+2. **Submit your GitHub username**: open a [team sign-up issue](https://github.com/hsk-ms-elective-agentic-ai/Ms_Elective_KI/issues/new?template=team-signup.yml) with your username and your team slug (ask your instructor if you don't know it). A GitHub Action adds you to your team automatically within a minute or two.
+3. **Accept the invite** — check your GitHub notifications/email and accept the team invitation. You have no access until you do this step.
+4. Once you're on your team, your instructor gives your team access to **your own copy of this repo** (created from this template, one per team) — that's the repo you'll actually work in for every exercise and the team assignment, not this one.
+
+Everything from "Getting started" onward in this README applies to **your team's repo**, once you have access to it.
+
 ## Getting started — choose one option
 
-There are two independent ways to get this project running. Pick **one**:
+There are two independent ways to get this project running. Pick **one**. (If you're a student: do this in your team's own repo, not here.)
 
 - **Option A — GitHub Codespaces:** run entirely in the browser, nothing installed on your machine.
 - **Option B — Run locally:** clone the repo and run it with Python/uv on your own computer.
@@ -62,13 +73,11 @@ Both options end up running the exact same code; only the setup step differs. Ev
 
 ### Option A: GitHub Codespaces (no local install)
 
-No local install needed.
-
-**If you want to edit and save your own changes** (e.g. for an assignment), fork this repo first, then open the Codespace from your fork: **Code → Create codespace on master** on *your fork's* page. You won't have push access if you open a Codespace directly on the original repo.
+No local install needed. Open your team's repo on github.com → **Code → Create codespace on master**.
 
 The container automatically installs `uv` and runs `uv sync`.
 
-**Add your API keys via Codespaces secrets (recommended — do this before opening your first codespace):** go to [github.com/settings/codespaces](https://github.com/settings/codespaces) → Codespaces secrets → add `GROQ_API_KEY` and `SERPER_API_KEY`. They'll be available as environment variables automatically in every codespace you open, on this repo or your fork — no file to create or edit inside the codespace at all. (`GEMINI_API_KEY` is only needed if you do the RAG/memory exercises, which use Gemini for embeddings.)
+**API keys are set up once per team, not per student**: at least one team member gets the free keys and adds them as **repository secrets** on your team's repo (`Settings → Secrets and variables → Codespaces`) — `GROQ_API_KEY`, `SERPER_API_KEY`, `GEMINI_API_KEY`. Once set, every teammate gets them automatically in any Codespace opened on that repo — nobody else needs to do this step. See [Assignment Overview](exercises/en/assignment-overview.md#team-setup-repos-and-accounts) for exactly how this works and the rate-limit tradeoff to know about.
 
 <details>
 <summary>Alternative: local <code>.env</code> file inside the codespace (only if you can't use Codespaces secrets)</summary>
@@ -94,7 +103,7 @@ Clone the repo, then from its root install the dependencies:
 uv sync
 ```
 
-Copy `.env.example` to `.env` and fill in your `GROQ_API_KEY` and `SERPER_API_KEY` (and `GEMINI_API_KEY` if you'll do the RAG/memory exercises, which use Gemini for embeddings).
+Copy `.env.example` to `.env` and fill in `GROQ_API_KEY`, `SERPER_API_KEY`, and `GEMINI_API_KEY` — ask your team for the keys they already set up as repository secrets (see Option A) rather than signing up again locally, unless you specifically want your own.
 
 Once that's done, continue with [Run the crew](#run-the-crew) below.
 
@@ -133,7 +142,7 @@ Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is au
 
 ## Team assignment
 
-Alongside the exercise sessions, teams design their own crew for a use case of their choice (see the table above), growing it in complexity milestone-by-milestone as new sessions unlock new capabilities — a critical risk/constraint analysis is the main graded deliverable, working code is an optional bonus. Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)).
+Alongside the exercise sessions, teams design their own crew for a use case of their choice (see the table above), growing it in complexity milestone-by-milestone as new sessions unlock new capabilities — a critical risk/constraint analysis is the main graded deliverable, working code is an optional bonus. Plan the work itself using GitHub Issues as epics/user stories, organized into sprints — see the [Sprint Plan](exercises/en/assignment-sprint-plan.md). Start at [exercises/en/assignment-overview.md](exercises/en/assignment-overview.md) (English / [Deutsch](exercises/de/assignment-overview.md)).
 
 ## Adding more tools or RAG (for students)
 

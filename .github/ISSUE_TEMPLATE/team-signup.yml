@@ -1,0 +1,25 @@
+name: Team sign-up
+description: Submit your GitHub username to be added to your team in the course organization.
+title: "Team sign-up: "
+labels: ["team-signup"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Submitting this adds you to your team automatically — within a minute or two you'll get a GitHub notification/email inviting you to the team. **You must accept that invite before you have access.**
+  - type: input
+    id: github_username
+    attributes:
+      label: Your GitHub username
+      description: Not your name or email — your exact GitHub username (top-right avatar menu on github.com shows it).
+      placeholder: octocat
+    validations:
+      required: true
+  - type: input
+    id: team_name
+    attributes:
+      label: Your team slug
+      description: Ask your instructor for the exact team name if you don't know it (e.g. team-a).
+      placeholder: team-a
+    validations:
+      required: true

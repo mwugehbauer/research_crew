@@ -22,9 +22,9 @@ Zwei Abgaben: eine **Zwischenabgabe** bei M2 (formativ, geringeres Gewicht — f
 
 ## Team-Setup: Repos und Accounts
 
-**Ein GitHub-Repository pro Team — nicht eines pro Studierendem.** Nutzt **"Use this template" → Create a new repository**, nicht "Fork": Forken teilt sich einen Netzwerk-Graph über alle Teams hinweg und zwingt Forks eines öffentlichen Repos, öffentlich zu bleiben, während ein aus einer Vorlage erzeugtes Repo vollständig unabhängig ist und privat gemacht werden kann, falls andere Teams euren Entwurf nicht sehen sollen. (Bittet eure Lehrperson, das Kurs-Repo als Template-Repository zu markieren, falls der Button noch fehlt.)
+Dieser Kurs läuft in einer GitHub-Organisation, mit **einem privaten Repository pro Team — nicht eines pro Studierendem.** Ihr legt dieses Repo nicht selbst an; eure Lehrperson hat es bereits aus der Kursvorlage erzeugt, eines pro Team, und gibt eurem Team Zugang dazu, sobald ihr eingeschrieben seid. Siehe den Abschnitt ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für die Einschreibe-Schritte (GitHub-Account → Team-Anmelde-Issue → Einladung annehmen).
 
-**Jedes Teammitglied braucht trotzdem einen eigenen GitHub-Account**, als Collaborator im Team-Repo hinzugefügt. Zwei Gründe: Eure einzelnen Commits sind die Grundlage, anhand der der individuelle Beitrag im Team bewertet wird, und eine echte Commit-Historie unter eurem eigenen Account ist über diesen Kurs hinaus etwas wert.
+**Jedes Teammitglied braucht trotzdem einen eigenen GitHub-Account**, dem Team in der Organisation hinzugefügt (nicht nur direkt einem Repo). Zwei Gründe: Eure einzelnen Commits sind die Grundlage, anhand der der individuelle Beitrag im Team bewertet wird, und eine echte Commit-Historie unter eurem eigenen Account ist über diesen Kurs hinaus etwas wert.
 
 ### Zusammenarbeiten ohne Git-Erfahrung
 
@@ -71,4 +71,33 @@ Vorlagen dafür findet ihr unter [Vorlagen für die Aufgabe](assignment-template
 
 ## Für Lehrende
 
-Um den Template-Repo-Workflow zu aktivieren: **Settings → "Template repository" anhaken** im Haupt-Kurs-Repo. Für eine Erfahrung näher an GitHub Classroom (Classroom selbst nimmt seit Mai 2026 keine neuen Anmeldungen mehr an) lohnt sich eine GitHub-Organisation für den Kurs mit einem Team pro Gruppe — dann seht ihr Repo und Issues jedes Teams an einer Stelle. Bewertet Abgaben, indem ihr die Commit-Historie jedes Teams auf `main` zu jeder Deadline prüft — taggt selbst einen bestimmten Commit (Releases → "Create a new release"), wenn ihr einen unveränderlichen Stand für die Bewertung wollt. Musterlösungen sind bewusst nicht enthalten, wie im Rest dieser Reihe.
+Das ist die einmalige Einrichtung hinter allem oben. GitHub Classroom nimmt seit Mai 2026 keine neuen Anmeldungen mehr an — das hier ersetzt es durch reine GitHub-Organisation-Funktionen, der Free-Plan deckt alles ab (unbegrenzte Mitglieder, unbegrenzte private Repos).
+
+### 1. Organisation und Teams anlegen
+
+Legt eine kostenlose Organisation an, dann **Settings → Teams → New team** einmal pro Projektgruppe (z. B. `team-a`, `team-b`, ...). Optional könnt ihr alle unter einem Parent-Team verschachteln (z. B. `students`), falls ihr ein gemeinsames Ressourcen-Repo wollt, das automatisch für alle sichtbar ist — Child-Teams erben alles, was das Parent-Team sehen kann.
+
+### 2. Dieses Repo als Vorlage markieren, dann ein Repo pro Team erzeugen
+
+Dieses Repo: **Settings → "Template repository" anhaken**. Dann pro Team:
+```bash
+gh repo create <org>/<team-slug>-crew --template <org>/<dieses-repo> --private
+gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
+```
+**Admin** (nicht nur Write) ist hier wichtig — das Verwalten der Secrets eines Repos braucht Admin, und ihr wollt, dass jedes Team seine API-Schlüssel selbst einrichten kann, ohne dass ihr dazwischen müsst.
+
+### 3. Codespaces für die Organisation aktivieren
+
+**Org Settings → Codespaces → General** → für alle Repositories aktivieren (oder gezielt die Team-Repos auswählen). Im Free-Plan rechnet Codespaces-Nutzung gegen das persönliche kostenlose Kontingent jedes Studierenden, nicht gegen die Organisation — kein Spending-Limit einzurichten.
+
+### 4. Automatische Team-Einschreibung einrichten
+
+Studierende reichen ihren GitHub-Benutzernamen über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) auf diesem Repo ein, und ein [Workflow](../../.github/workflows/add-to-team.yml) fügt sie automatisch ihrem Team hinzu. Dafür wird ein Secret benötigt, das der Standard-`GITHUB_TOKEN` nicht bereitstellen kann, da Team-Mitgliedschaft eine Organisations-Berechtigung ist:
+
+1. Erstellt ein Personal Access Token mit **Organization → Members: Read and write** und **Repository → Issues: Read and write** (fine-grained), oder `admin:org` + `repo` (classic).
+2. Fügt es als Secret namens `ORG_ADMIN_TOKEN` hinzu — entweder auf diesem Repo selbst (**Settings → Secrets and variables → Actions**) oder auf Organisationsebene, beschränkt auf dieses Repo (**Org Settings → Secrets and variables → Actions**).
+3. Das war's — der Workflow übernimmt Parsen, Hinzufügen, Antworten und Schließen des Issues automatisch. Fehler (vertippter Benutzername, falscher Team-Slug) werden als klarer Kommentar auf dem Issue zurückgemeldet, statt stillschweigend zu scheitern.
+
+### 5. Laufend: Abgaben prüfen
+
+Prüft die Commit-Historie jedes Teams auf `main` zu jeder Deadline — taggt selbst einen bestimmten Commit (Releases → "Create a new release"), wenn ihr einen unveränderlichen Stand für die Bewertung wollt. Musterlösungen sind bewusst nicht enthalten, wie im Rest dieser Reihe.

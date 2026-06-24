@@ -22,9 +22,9 @@ Two submissions: an **interim submission** at M2 (formative, lighter weight — 
 
 ## Team setup: repos and accounts
 
-**One GitHub repository per team — not one per student.** Use **"Use this template" → Create a new repository**, not "Fork": forking shares one network graph across every team and forces forks of a public repo to stay public, while a template-generated repo is fully independent and can be made private if you want other teams unable to see your design. (Ask your instructor to mark the course repo as a template repository if the button isn't there yet.)
+This course runs in a GitHub Organization, with **one private repository per team — not one per student.** You don't create this repo yourself; your instructor already generated it from the course template, one per team, and grants your team access to it once you're enrolled. See the main [README's "Getting access" section](../../README.md#getting-access-students) for the enrollment steps (GitHub account → team sign-up issue → accept invite).
 
-**Every team member still needs their own GitHub account**, added as a collaborator on the team's repo. Two reasons: your individual commits are how contribution within the team gets assessed, and a real commit history under your own account is worth having beyond this course.
+**Every team member still needs their own GitHub account**, added to the team in the organization (not just to a repo directly). Two reasons: your individual commits are how contribution within the team gets assessed, and a real commit history under your own account is worth having beyond this course.
 
 ### Collaborating without git experience
 
@@ -71,4 +71,33 @@ Templates for all of this are in [Assignment Templates](assignment-templates.md)
 
 ## For instructors
 
-To enable the template-repo workflow: **Settings → check "Template repository"** on the main course repo. For a closer GitHub-Classroom-like experience (Classroom itself stopped taking new sign-ups in May 2026), consider a GitHub Organization for the course with one Team per group — each team's repo and Issues are then visible to you in one place. Review submissions by checking each team's commit history on `main` at each deadline — tag a specific commit yourself (Releases → "Create a new release") if you want an immutable snapshot for grading. Solutions aren't included on purpose, the same as the rest of this series.
+This is the one-time setup behind everything above. GitHub Classroom stopped taking new sign-ups in May 2026, so this replaces it with plain GitHub Organization features — Free plan covers all of it (unlimited members, unlimited private repos).
+
+### 1. Create the organization and teams
+
+Create a Free organization, then **Settings → Teams → New team** once per project group (e.g. `team-a`, `team-b`, ...). Optionally nest them all under one parent team (e.g. `students`) if you want a shared resources repo visible to everyone automatically — child teams inherit whatever the parent can see.
+
+### 2. Mark this repo as a template, then generate one repo per team
+
+This repo's **Settings → check "Template repository"**. Then per team:
+```bash
+gh repo create <org>/<team-slug>-crew --template <org>/<this-repo> --private
+gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
+```
+**Admin** (not just Write) matters here — managing a repo's secrets requires Admin, and you want each team able to set up their own API keys without you in the loop.
+
+### 3. Enable Codespaces for the organization
+
+**Org Settings → Codespaces → General** → enable for all repositories (or select the team repos specifically). On the Free plan, Codespaces usage bills to each student's own personal free quota, not the organization — no spending limit to configure.
+
+### 4. Set up automatic team enrollment
+
+Students submit their GitHub username via a [team sign-up issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) on this repo, and a [workflow](../../.github/workflows/add-to-team.yml) adds them to their team automatically. This needs one secret the default `GITHUB_TOKEN` can't provide, since team membership is an organization-level permission:
+
+1. Create a personal access token with **organization → Members: Read and write** and **repository → Issues: Read and write** scopes (fine-grained), or `admin:org` + `repo` (classic).
+2. Add it as a secret named `ORG_ADMIN_TOKEN` — either on this repo specifically (**Settings → Secrets and variables → Actions**) or at the org level scoped to this repo (**Org Settings → Secrets and variables → Actions**).
+3. That's it — the workflow handles parsing, adding, replying, and closing the issue automatically. Failures (typo'd username, wrong team slug) get a clear comment back on the issue rather than failing silently.
+
+### 5. Ongoing: review submissions
+
+Check each team's commit history on `main` at each deadline — tag a specific commit yourself (Releases → "Create a new release") if you want an immutable snapshot for grading. Solutions aren't included on purpose, the same as the rest of this series.

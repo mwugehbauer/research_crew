@@ -11,7 +11,7 @@ Every exercise session starts directly with the practical work rather than a sep
 
 This series doesn't repeat the lecture's own treatment of each topic — it's the hands-on companion, not a second lecture.
 
-You should have [Run the crew](../README.md#run-the-crew) working (via Codespaces or locally) before exercise 1.
+You should have [Run the crew](../README.md#run-the-crew) working in **your team's own repo** (via Codespaces or locally) before exercise 1 — see the main [README's "Getting access"](../README.md#getting-access-students) section if you don't have that yet.
 
 Lakshmanan's *Generative AI Design Patterns* is cited as a companion text in exercise 05 (production); all other citations are specific arXiv papers, listed per exercise under "Original paper."
 
@@ -33,4 +33,4 @@ Alongside the exercise sessions, teams design their own crew for a topic of thei
 
 ## For instructors
 
-Each exercise references real files in `src/research_crew/`. Have students work directly in their own Codespace or fork — see the main [README](../README.md) for the two setup options. Solutions aren't included on purpose; if you want a reference implementation for grading, ask students to open a PR against their own fork so you can review the diff. For the team assignment specifically, see the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for repo/team setup.
+Each exercise references real files in `src/research_crew/`. Students work in their own team's repo (one per team, provisioned from this template under your course organization) — see the main [README's "Getting access"](../README.md#getting-access-students) for the student-facing enrollment flow, and the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for the full org/team/repo provisioning and the automated sign-up workflow. Solutions aren't included on purpose; review submissions by checking each team's commit history directly.

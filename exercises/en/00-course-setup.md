@@ -2,11 +2,13 @@
 
 🇬🇧 **English** (this page) · 🇩🇪 [Deutsch](../de/00-course-setup.md)
 
-Before writing any agent code, everyone needs an identical, working environment. The two failure modes that waste the most class time are: students stuck on local installs, and students missing API keys. We solve both before exercise 1.
+Before writing any agent code, everyone needs an identical, working environment. The three failure modes that waste the most class time are: students stuck waiting for org/team access, students stuck on local installs, and students missing API keys. We solve all three before exercise 1.
 
 ## In this repo
 
-This project supports two setup paths, documented in the main [README](../../README.md#getting-started--choose-one-option):
+This course runs in a GitHub Organization. Getting access happens once, documented in the main [README's "Getting access" section](../../README.md#getting-access-students): get a GitHub account, submit it via the team sign-up issue, accept your team invite, then your instructor gives your team access to **your own copy of this repo** — that's the one you actually work in from here on, not this exact page's repo.
+
+Once you're in your team's repo, it supports two setup paths, documented in the main [README](../../README.md#getting-started--choose-one-option):
 
 - **Option A: GitHub Codespaces** — zero local install, runs in the browser. The container automatically runs `uv sync` via [.devcontainer/devcontainer.json](../../.devcontainer/devcontainer.json).
 - **Option B: Run locally** — `uv sync` on your own machine.
@@ -16,15 +18,17 @@ Either way, you need three API keys before anything will run:
 - `SERPER_API_KEY` — powers the researcher agent's web search tool
 - `GEMINI_API_KEY` — powers embeddings for knowledge/memory features, not the chat LLM (see exercise 03)
 
+**These are set up once per team, not once per student** — see the Task below.
+
 ## Task
 
-1. Pick a setup path (Codespaces or local) and get it running, following the README.
-2. Get your own free API keys:
+1. If you haven't already: get a GitHub account, submit it via your team's sign-up issue, and accept the team invite once it arrives. Confirm you can see your team's repo before continuing.
+2. **As a team, agree on who sets up the API keys** — it only needs to happen once. That person gets the free keys:
    - Groq: https://console.groq.com/keys (free tier)
    - Serper: https://serper.dev (free tier)
    - Gemini: https://ai.google.dev (free tier)
-3. Add your keys: if you're on Codespaces, add them as **Codespaces secrets** at [github.com/settings/codespaces](https://github.com/settings/codespaces) *before* opening your codespace — this is the recommended path, since it means you never touch a file containing real keys at all. If you're running locally, copy `.env.example` to `.env` and fill them in there (not into `.env.example` itself — that file is committed and must stay empty).
-4. Run the crew once:
+3. That person adds them as **repository secrets** on your team's repo: `Settings → Secrets and variables → Codespaces` → add `GROQ_API_KEY`, `SERPER_API_KEY`, `GEMINI_API_KEY`. Everyone else on the team gets these automatically in any Codespace they open on that repo — nobody else repeats this step. (Running locally instead of Codespaces: copy `.env.example` to `.env` and fill them in there yourself — `.env` isn't shared between teammates the way repository secrets are.)
+4. Open your team's repo and run the crew once:
    ```bash
    uv run research_crew
    ```
