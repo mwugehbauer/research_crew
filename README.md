@@ -56,7 +56,7 @@ Full detail (why each is low-friction on the code side despite the new role desi
 This course runs in a GitHub Organization, not on this repo directly. Everything below happens once, before your first exercise:
 
 1. **Get a GitHub account** if you don't already have one — free, just an email signup.
-2. **Submit your GitHub username**: open a [team sign-up issue](https://github.com/hsk-ms-elective-agentic-ai/Ms_Elective_KI/issues/new?template=team-signup.yml) with your username and your team slug (ask your instructor if you don't know it). A GitHub Action adds you to your team automatically within a minute or two.
+2. **Submit your GitHub username**: open a [team sign-up issue](https://github.com/hsk-ms-elective-agentic-ai/Ms_Elective_KI/issues/new?template=team-signup.yml) with just your username — you don't pick your team yourself, it's looked up from the roster your instructor maintains. A GitHub Action adds you to the right team automatically within a minute or two.
 3. **Accept the invite** — check your GitHub notifications/email and accept the team invitation. You have no access until you do this step.
 4. Once you're on your team, your instructor gives your team access to **your own copy of this repo** (created from this template, one per team) — that's the repo you'll actually work in for every exercise and the team assignment, not this one.
 
