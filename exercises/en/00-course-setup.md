@@ -22,7 +22,7 @@ Either way, you need three API keys before anything will run:
 
 ## Task
 
-1. If you haven't already: get a GitHub account, submit your username via the team sign-up issue (your team is looked up automatically — you don't choose it), and accept the team invite once it arrives. Confirm you can see your team's repo before continuing.
+1. If you haven't already: get a GitHub account, submit your email and username via the team sign-up issue (your instructor reviews it and assigns your team manually — not instant), and accept the team invite once it arrives. Confirm you can see your team's repo before continuing.
 2. **As a team, agree on who sets up the API keys** — it only needs to happen once. That person gets the free keys:
    - Groq: https://console.groq.com/keys (free tier)
    - Serper: https://serper.dev (free tier)

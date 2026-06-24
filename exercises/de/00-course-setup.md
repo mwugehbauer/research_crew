@@ -22,7 +22,7 @@ In beiden Fällen werden drei API-Schlüssel benötigt, bevor überhaupt etwas l
 
 ## Aufgabe
 
-1. Falls noch nicht erledigt: Holt euch einen GitHub-Account, reicht euren Benutzernamen über das Team-Anmelde-Issue ein (euer Team wird automatisch nachgeschlagen — ihr wählt es nicht selbst), und nehmt die Team-Einladung an, sobald sie ankommt. Prüft, dass ihr euer Team-Repo sehen könnt, bevor ihr weitermacht.
+1. Falls noch nicht erledigt: Holt euch einen GitHub-Account, reicht eure E-Mail und euren Benutzernamen über das Team-Anmelde-Issue ein (eure Lehrperson prüft es und weist euer Team manuell zu — nicht sofort), und nehmt die Team-Einladung an, sobald sie ankommt. Prüft, dass ihr euer Team-Repo sehen könnt, bevor ihr weitermacht.
 2. **Einigt euch als Team, wer die API-Schlüssel einrichtet** — das muss nur einmal passieren. Diese Person holt sich die kostenlosen Schlüssel:
    - Groq: https://console.groq.com/keys (kostenloses Kontingent)
    - Serper: https://serper.dev (kostenloses Kontingent)

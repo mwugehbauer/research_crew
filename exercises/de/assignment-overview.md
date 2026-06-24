@@ -90,14 +90,14 @@ gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
 
 **Org Settings → Codespaces → General** → für alle Repositories aktivieren (oder gezielt die Team-Repos auswählen). Im Free-Plan rechnet Codespaces-Nutzung gegen das persönliche kostenlose Kontingent jedes Studierenden, nicht gegen die Organisation — kein Spending-Limit einzurichten.
 
-### 4. Roster pflegen, dann automatische Team-Einschreibung einrichten
+### 4. Team-Einschreibung einrichten: Studierende reichen ein, ihr entscheidet, ein Workflow führt aus
 
-Studierende reichen nur ihren **GitHub-Benutzernamen** über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) auf diesem Repo ein — sie wählen ihr Team bewusst nicht selbst. Ein [Workflow](../../.github/workflows/add-to-team.yml) schlägt anhand von [.github/team-roster.csv](../../.github/team-roster.csv) nach, zu welchem Team sie gehören, und fügt sie automatisch hinzu — so kann niemand (versehentlich oder absichtlich) einem Team beitreten, dem er nicht zugewiesen wurde.
+Studierende reichen ihre **E-Mail und ihren GitHub-Benutzernamen** über ein [Team-Anmelde-Issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) auf diesem Repo ein. Das allein bewirkt nichts außer einer Benachrichtigung an euch — **ihr entscheidet die Team-Zuweisung selbst**, indem ihr ein Label vergebt, und ein [Workflow](../../.github/workflows/add-to-team.yml) übernimmt den mechanischen Teil (zum Team hinzufügen, antworten, Issue schließen).
 
-1. **Füllt den Roster, bevor ihr die Anmeldung öffnet**: bearbeitet `.github/team-roster.csv`, eine `github_username,team`-Zeile pro Studierendem, sobald die Teams feststehen. Committet sie direkt — sie ist nicht geheim, nur eine Klassenliste.
+1. **Erstellt ein Label pro Team**, exakt benannt `team:<team-slug>` (z. B. `team:team-a`) — **Issues → Labels → New label**, einmal pro Team.
 2. **Erstellt das Token für die Automatisierung**: ein Personal Access Token mit **Organization → Members: Read and write** und **Repository → Issues: Read and write** (fine-grained), oder `admin:org` + `repo` (classic) — nötig, weil Team-Mitgliedschaft eine Organisations-Berechtigung ist, die der Standard-`GITHUB_TOKEN` nicht vergeben kann.
 3. Fügt es als Secret namens `ORG_ADMIN_TOKEN` hinzu — entweder auf diesem Repo selbst (**Settings → Secrets and variables → Actions**) oder auf Organisationsebene, beschränkt auf dieses Repo (**Org Settings → Secrets and variables → Actions**).
-4. Das war's — der Workflow übernimmt Roster-Lookup, Hinzufügen, Antworten und Schließen des Issues automatisch. Ein Benutzername, der noch nicht im Roster steht, bekommt einen klaren Kommentar, die Lehrperson zu kontaktieren, statt zu irgendeinem erratenen Team hinzugefügt zu werden.
+4. **Bei jeder neuen Anmeldung**: Das Issue bekommt automatisch einen Kommentar, der euch erinnert, das passende Team-Label zu vergeben. Öffnet das Issue, findet anhand der E-Mail heraus, wer das in eurer eigenen Team-Liste ist, und vergebt `team:<deren-Team-Slug>` — dieses Label *ist* der Auslöser; der Workflow liest es, fügt den Benutzernamen hinzu, antwortet und schließt das Issue. Falscher Benutzername oder Label-Tippfehler? Korrigieren und das Label erneut vergeben, um es noch einmal zu versuchen.
 
 ### 5. Laufend: Abgaben prüfen
 

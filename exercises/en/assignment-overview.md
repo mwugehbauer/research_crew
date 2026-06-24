@@ -90,14 +90,14 @@ gh api repos/<org>/<team-slug>-crew/teams/<team-slug> -X PUT -f permission=admin
 
 **Org Settings → Codespaces → General** → enable for all repositories (or select the team repos specifically). On the Free plan, Codespaces usage bills to each student's own personal free quota, not the organization — no spending limit to configure.
 
-### 4. Maintain the roster, then set up automatic team enrollment
+### 4. Set up team enrollment: students submit, you decide, a workflow executes
 
-Students submit only their **GitHub username** via a [team sign-up issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) on this repo — they never choose their own team, on purpose. A [workflow](../../.github/workflows/add-to-team.yml) looks up which team they belong to from [.github/team-roster.csv](../../.github/team-roster.csv) and adds them automatically, so a student can't accidentally (or deliberately) join a team they weren't assigned to.
+Students submit their **email and GitHub username** via a [team sign-up issue](../../.github/ISSUE_TEMPLATE/team-signup.yml) on this repo. That alone does nothing except notify you — **you decide the team assignment yourself**, by applying a label, and a [workflow](../../.github/workflows/add-to-team.yml) does the mechanical part (adding them to the team, replying, closing the issue).
 
-1. **Fill in the roster before opening sign-ups**: edit `.github/team-roster.csv`, one `github_username,team` row per student, once teams are finalized. Commit it directly — it's not secret, just a class list.
+1. **Create one label per team**, named exactly `team:<team-slug>` (e.g. `team:team-a`) — **Issues → Labels → New label**, once per team.
 2. **Create the automation's token**: a personal access token with **organization → Members: Read and write** and **repository → Issues: Read and write** scopes (fine-grained), or `admin:org` + `repo` (classic) — needed because team membership is an organization-level permission the default `GITHUB_TOKEN` can't grant.
 3. Add it as a secret named `ORG_ADMIN_TOKEN` — either on this repo specifically (**Settings → Secrets and variables → Actions**) or at the org level scoped to this repo (**Org Settings → Secrets and variables → Actions**).
-4. That's it — the workflow handles roster lookup, adding, replying, and closing the issue automatically. A username not yet in the roster gets a clear comment telling them to contact you, rather than being added to whatever team they might have guessed.
+4. **Triage as sign-ups arrive**: each new issue gets an automatic comment reminding you to apply the right team label. Open the issue, use the email to figure out who this actually is against your own team list, and apply `team:<their-team-slug>` — that label *is* the trigger; the workflow reads it, adds the username, replies, and closes the issue. Wrong username or label typo? Fix it and re-apply the label to retry.
 
 ### 5. Ongoing: review submissions
 
