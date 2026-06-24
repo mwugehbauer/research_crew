@@ -195,4 +195,7 @@ Locally this opens at `http://localhost:8501`. In a Codespace, port `8501` is au
 For support, questions, or feedback regarding CrewAI itself (not the exercises):
 - Visit the [CrewAI documentation](https://docs.crewai.com)
 - Reach out via the [CrewAI GitHub repository](https://github.com/crewAIInc/crewAI)
+
+To learn CrewAI beyond what these sprints cover, on your own time:
+- [Multi AI Agent Systems with crewAI](https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/) (DeepLearning.AI) — a short video course taught by CrewAI's founder; free during DeepLearning.AI's platform beta, may not stay free indefinitely
 - [Join the CrewAI Discord](https://discord.com/invite/X4JWnZnxPb)

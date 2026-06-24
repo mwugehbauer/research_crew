@@ -27,6 +27,12 @@ Lakshmanans *Generative AI Design Patterns* wird als Begleitwerk in Sprint 5 zit
 
 Was bewertet wird und wie, das Abgabepaket, Team-Setup und die Vorlagen (`DESIGN.md`, `TEAM.md`, User Stories, Peer Evaluation), siehe [Überblick zur Aufgabe](assignment-overview.md) (Deutsch / [English](../en/assignment-overview.md)).
 
+## Selbstständig weiterlernen
+
+Der "Hintergrund"-Abschnitt jedes Sprints gibt euch gerade genug, um das Konzept einzuordnen — für alles, was CrewAI selbst über das hinaus kann, was die Demo-Crew in diesem Repo zeigt, geht direkt zur Quelle:
+- [CrewAI-Dokumentation](https://docs.crewai.com) — die vollständige Konzept-Referenz (Agents, Tasks, Prozesse, Tools, Memory, Knowledge, Flows) und der [Quickstart](https://docs.crewai.com/en/quickstart)
+- [Multi AI Agent Systems with crewAI](https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/) (DeepLearning.AI) — ein kurzer Videokurs, gehalten vom Gründer von CrewAI; kostenlos während der Beta-Phase der DeepLearning.AI-Plattform, bleibt möglicherweise nicht dauerhaft kostenlos
+
 ## Für Lehrende
 
-Jeder Sprint verweist auf reale Dateien in `src/research_crew/`. Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Org-/Team-/Repo-Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die Commit-Historie jedes Teams direkt prüft.
+Jeder Sprint verweist auf reale Dateien in `src/research_crew/`. Studierende arbeiten in ihrem eigenen Team-Repo (eines pro Team, aus dieser Vorlage unter eurer Kurs-Organisation erzeugt) — siehe ["Zugang erhalten" im Haupt-README](../../README.md#getting-access-students) für den studierendenseitigen Einschreibe-Ablauf, und den Abschnitt "Für Lehrende" im [Überblick zur Aufgabe](assignment-overview.md#für-lehrende) für die vollständige Org-/Team-/Repo-Einrichtung und den automatisierten Anmelde-Workflow. Musterlösungen sind bewusst nicht enthalten; bewertet Abgaben, indem ihr die gemergten Sprint-Pull-Requests jedes Teams direkt prüft.

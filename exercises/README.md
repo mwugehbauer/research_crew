@@ -27,6 +27,12 @@ Lakshmanan's *Generative AI Design Patterns* is cited as a companion text in Spr
 
 For what's graded and how, the submission package, team setup, and templates (`DESIGN.md`, `TEAM.md`, user stories, peer evaluation), see [Assignment Overview](en/assignment-overview.md) (English / [Deutsch](de/assignment-overview.md)).
 
+## Learn more on your own
+
+Each sprint's "Background" section gives you just enough to place the concept — for everything CrewAI itself can do beyond what this repo's demo crew demonstrates, go straight to the source:
+- [CrewAI documentation](https://docs.crewai.com) — the full concept reference (agents, tasks, processes, tools, memory, knowledge, flows) and the [quickstart](https://docs.crewai.com/en/quickstart)
+- [Multi AI Agent Systems with crewAI](https://www.deeplearning.ai/short-courses/multi-ai-agent-systems-with-crewai/) (DeepLearning.AI) — a short video course taught by CrewAI's founder; free during DeepLearning.AI's platform beta, may not stay free indefinitely
+
 ## For instructors
 
-Each sprint references real files in `src/research_crew/`. Students work in their own team's repo (one per team, provisioned from this template under your course organization) — see the main [README's "Getting access"](../README.md#getting-access-students) for the student-facing enrollment flow, and the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for the full org/team/repo provisioning and the automated sign-up workflow. Solutions aren't included on purpose; review submissions by checking each team's commit history directly.
+Each sprint references real files in `src/research_crew/`. Students work in their own team's repo (one per team, provisioned from this template under your course organization) — see the main [README's "Getting access"](../README.md#getting-access-students) for the student-facing enrollment flow, and the "For instructors" section in the [Assignment Overview](en/assignment-overview.md#for-instructors) for the full org/team/repo provisioning and the automated sign-up workflow. Solutions aren't included on purpose; review submissions by checking each team's merged sprint pull requests directly.
